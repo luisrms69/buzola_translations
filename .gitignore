@@ -1,0 +1,61 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.py~
+
+# Distribution / packaging
+.Python
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+tags
+MANIFEST
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# IDEs and editors
+.vscode/
+.vs/
+.idea/
+*.DS_Store
+*.swp
+*debug.log
+
+# MkDocs output
+site/
+
+# Catálogos compilados de gettext (se generan con compile-po-to-mo en sites/assets, nunca en el repo).
+*.mo
+
+# Configuración de Claude Code — no versionar. Los comandos son un symlink a
+# frappe-infrastructure/.claude/commands recreado por el scaffold; su destino es una ruta
+# absoluta específica de la máquina, por eso NO se versiona (patrón de erpnext_proposals).
+.claude/
+
+# Scripts temporales / one-offs privados — nunca se versionan.
+one_offs/
+
+# Respaldos locales y temporales de auditoría de traducción — no versionar.
+*.backup-*.json
+*.tmp.csv

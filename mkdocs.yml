@@ -1,0 +1,37 @@
+site_name: "Buzola Translations"
+site_description: "Traducciones locales en español (México) para el ecosistema Frappe/ERPNext"
+site_author: "Consultoria en Negocios y Aplicaciones"
+docs_dir: docs
+
+nav:
+  - Inicio: index.md
+  - Manual de usuario:
+    - Índice: usuario/index.md
+  - Documentación técnica:
+    - Índice: tecnico/index.md
+  - Releases:
+    - Changelog: CHANGELOG.md
+    - Decisiones (ADR):
+      - Índice: adr/index.md
+      - ADR-0000 Estado inicial y mecanismo de sobrescritura: adr/0000-estado-inicial-app.md
+
+theme:
+  name: material
+  language: es
+  palette:
+    primary: indigo
+    accent: blue
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+
+# Fallback si mkdocs-material no está instalado:
+# theme:
+#   name: mkdocs
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+  - admonition
