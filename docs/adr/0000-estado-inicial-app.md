@@ -6,7 +6,7 @@
   en el futuro apareciera un caso donde `.po` no sobrescriba.
 - **Fecha:** 2026-08-01
 - **Contexto de versión:** Frappe 16.26.3, ERPNext 16.27.0, HRMS 16.12.2, Helpdesk 1.28.1 (main),
-  CRM 2.0.0-dev, Python 3.14.6, bench `/home/erpnext/frappe-bench-v16`.
+  CRM 2.0.0-dev, Python 3.14.6, bench v16 (`<bench-path>`).
 
 ## Contexto
 
@@ -52,7 +52,7 @@ El catálogo local se publica **provisionalmente** como **archivo `.po`** en `bu
   `apps.txt`). Si se reinstala/reordena, hay que reinstalar `buzola_translations` al final.
 - Requiere `compile-po-to-mo` + `bench build` + `clear-cache` tras cada cambio de catálogo.
 
-## Validación (resultados demostrados — 2026-08-01, sitio `proposals.dev`)
+## Validación (resultados demostrados — 2026-08-01, sitio `<site>`)
 
 Prueba end-to-end con dos cadenas (ERPNext + HRMS), sin `bench build` (bastó `compile-po-to-mo`,
 que escribe el `.mo` directamente):

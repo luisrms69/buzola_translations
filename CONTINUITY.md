@@ -31,7 +31,7 @@ repos de terceros limpios.
 ### Ya cerrado
 - Auditoría de reglas de frappe-infrastructure (scaffold, docs, git, symlinks).
 - Investigación del mecanismo de traducción v16 (evidencia en `docs/adr/0000`).
-- Inventario de las 5 apps (helpdesk `main` + telephony instaladas en `proposals.dev`).
+- Inventario de las 5 apps (helpdesk `main` + telephony instaladas en `<site>`).
 - Scaffold estándar + symlink `.claude/commands` + `git init` (rama `version-16`).
 - Prueba mínima end-to-end VERDE: `.po` sobrescribe erpnext+hrms, persiste y revierte.
 
@@ -76,7 +76,7 @@ repos de terceros limpios.
 - El override depende del orden de instalación (BD), no de `apps.txt`: buzola debe ser la última
   instalación en cada sitio.
 - Registro de la app en el bench vía `sites/apps.txt` + `env/.../buzola_translations.pth`
-  (no versionados). buzola quedó DESINSTALADA de `proposals.dev`; helpdesk/telephony siguen.
+  (no versionados). buzola quedó DESINSTALADA de `<site>`; helpdesk/telephony siguen.
 - `crm` en `develop` y `helpdesk` en `main`: sus `msgid` pueden moverse entre versiones.
 
 ---

@@ -21,14 +21,14 @@ traducción con una muestra — **sin** generar aún el catálogo completo ni lo
 - [x] Inventario de catálogos de las 5 apps (+ instalación helpdesk/telephony).
 
 ### F3 — Prueba mínima reproducible (PENDIENTE — requiere autorización BD)
-Pasos propuestos (sitio candidato: `proposals.dev`, que ya tiene las 5 apps):
-1. `bench --site proposals.dev install-app buzola_translations`  ⚠️ escribe BD
+Pasos propuestos (sitio candidato: `<site>`, que ya tiene las 5 apps):
+1. `bench --site <site> install-app buzola_translations`  ⚠️ escribe BD
 2. Poner en `buzola_translations/locale/es.po` una cadena de prueba, p. ej. sobrescribir
    una `msgid` conocida de frappe/erpnext con un valor local reconocible.
 3. `bench compile-po-to-mo --app buzola_translations`
 4. `bench build --app buzola_translations`
-5. `bench --site proposals.dev clear-cache`
-6. Verificar con `bench --site proposals.dev execute frappe.translate.get_all_translations`
+5. `bench --site <site> clear-cache`
+6. Verificar con `bench --site <site> execute frappe.translate.get_all_translations`
    (o `_()`), que la cadena devuelve el valor local.
 7. Confirmar `git status` en apps de terceros = limpio (no se modificaron).
 8. Registrar comandos y salidas reales en el ADR-0000 (sección validación).

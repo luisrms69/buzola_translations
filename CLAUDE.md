@@ -1,8 +1,7 @@
 # CLAUDE.md — buzola_translations
 
-Las reglas globales del ecosistema están en
-`/home/erpnext/Developer/frappe-infrastructure/.claude/CLAUDE.md` y en los CLAUDE.md de
-`~/.claude` y `frappe-bench-v16/.claude`. Este archivo solo añade contexto local.
+Las reglas globales del ecosistema están en `frappe-infrastructure/.claude/CLAUDE.md` y en los
+CLAUDE.md de `~/.claude` y del bench (`<bench-path>/.claude`). Este archivo solo añade contexto local.
 
 ## Qué es esta app
 
