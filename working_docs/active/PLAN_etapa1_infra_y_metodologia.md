@@ -20,27 +20,26 @@ traducción con una muestra — **sin** generar aún el catálogo completo ni lo
 - [x] Mecanismo de traducción v16 (`frappe/translate.py`): orden de carga, precedencia, caché.
 - [x] Inventario de catálogos de las 5 apps (+ instalación helpdesk/telephony).
 
-### F3 — Prueba mínima reproducible (PENDIENTE — requiere autorización BD)
-Pasos propuestos (sitio candidato: `<site>`, que ya tiene las 5 apps):
-1. `bench --site <site> install-app buzola_translations`  ⚠️ escribe BD
-2. Poner en `buzola_translations/locale/es.po` una cadena de prueba, p. ej. sobrescribir
-   una `msgid` conocida de frappe/erpnext con un valor local reconocible.
-3. `bench compile-po-to-mo --app buzola_translations`
-4. `bench build --app buzola_translations`
-5. `bench --site <site> clear-cache`
-6. Verificar con `bench --site <site> execute frappe.translate.get_all_translations`
-   (o `_()`), que la cadena devuelve el valor local.
-7. Confirmar `git status` en apps de terceros = limpio (no se modificaron).
-8. Registrar comandos y salidas reales en el ADR-0000 (sección validación).
+### F3 — Prueba mínima reproducible (HECHO — 2026-08-01, sitio `<site>`)
+- [x] Instalación de la app y override de dos cadenas (erpnext + hrms) con valor local.
+- [x] Persistencia tras `compile-po-to-mo` + `clear-cache`; reversibilidad al desinstalar.
+- [x] Apps de terceros sin modificar. Evidencia y tabla ANTES/DESPUÉS en `docs/adr/0000`.
 
-### F4 — Metodología y muestra (EN PROGRESO)
+### F4 — Metodología y muestra (HECHO)
 - [x] Agrupación ≤6 archivos definida (ver rector §10).
-- [ ] Muestra de catálogo (`review/_muestra_metodologia.csv`) con cadenas reales y contexto.
-- [ ] Revisión de la muestra con el usuario para calibrar criterios.
+- [x] Muestra de catálogo (`review/_muestra_metodologia.csv`) con cadenas reales y contexto.
 
-## Pendiente de autorización explícita
-- `install-app buzola_translations` (BD), `git init` + rama `version-16`, cualquier PR.
+### F5 — Publicación del repositorio (HECHO — 2026-08-01)
+- [x] Repo público `https://github.com/luisrms69/buzola_translations`, remoto `upstream` HTTPS.
+- [x] `version-16 -> upstream/version-16`, HEAD `cc241f5`, 2 commits publicados, sin `origin`.
+
+## Cerrado / pendiente
+- **Infraestructura: CERRADA** (F1–F5). El repo está apto para la etapa funcional.
+- **Pendiente (etapa funcional — otra conversación):** extracción real del catálogo
+  (`generate-pot-file`), consolidación en `review/`, propuestas, revisión humana y generación de
+  `locale/es.po` real (aún sin traducciones reales).
 
 ## No repetir
 - helpdesk `develop` (rama móvil); se usó `main`.
 - `docs/active/` (no canónico).
+- SSH para GitHub; el estándar es HTTPS + `gh`.
