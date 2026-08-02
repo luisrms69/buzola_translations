@@ -1,7 +1,19 @@
 # PLAN — Etapa 1: infraestructura, investigación y metodología
 
-Plan de trabajo activo. Fuente rectora: `frappe-infrastructure/projects/buzola_translations/plan-rector.md`.
-No es documentación publicable. Se archiva o migra al cerrar la etapa.
+> **ESTADO: CERRADO — 2026-08-01.** Etapa de infraestructura/configuración completada; archivado
+> desde `working_docs/active/`.
+>
+> **Resultado final:** repositorio público con remoto `upstream` por HTTPS, rama `version-16`
+> protegida por el ruleset `version-16-protection` (PR obligatorio; force push y borrado bloqueados;
+> historial lineal; checks obligatorios `Validate`, `Pre-commit`, `Dependency audit`; sin bypass),
+> CI/lint integrados (PR #1 mergeado en `b72d34c`), clon limpio validado, registro funcional de la
+> app en el bench aceptado, y mecanismo `.po` validado end-to-end.
+>
+> **Pendiente (otra conversación):** extracción y revisión de traducciones; `locale/es.po` aún no
+> se ha generado.
+
+Fuente rectora: `frappe-infrastructure/projects/buzola_translations/plan-rector.md`.
+No es documentación publicable. Archivado al cerrar la etapa.
 
 ## Objetivo de la etapa
 

@@ -2,24 +2,25 @@
 
 **Fecha:** 2026-08-01
 **Rama activa:** `docs/update-setup-continuity` (rama de trabajo; `version-16` es la protegida)
-**Tarea actual:** Cierre documental del setup. El **setup técnico del repositorio quedó cerrado**.
+**Tarea actual:** **Etapa de setup CERRADA** (punto 9). Siguiente etapa: extracción y revisión de traducciones (otra conversación).
 
 ---
 
 ## Recuperación rápida
 
 Estoy trabajando en:
-La app de traducciones locales del ecosistema. El **setup técnico está cerrado**: scaffold,
-prueba `.po` verde, repo público, CI/CD integrado y rama protegida con ruleset. Falta la **etapa
-funcional** (extraer/proponer/revisar traducciones), que va en **otra conversación**.
+La app de traducciones locales del ecosistema. La **etapa de setup está COMPLETAMENTE cerrada**
+(scaffold, prueba `.po` verde, repo público, CI/CD, rama protegida con ruleset, clon limpio
+validado). El plan de la etapa 1 quedó **archivado**. La **etapa funcional** (extraer/proponer/
+revisar traducciones y generar `locale/es.po`) va en **otra conversación**.
 
-Plan que estoy siguiendo:
-`frappe-infrastructure/projects/buzola_translations/plan-rector.md` (rector) y
-`working_docs/active/PLAN_etapa1_infra_y_metodologia.md`.
+Fuente rectora / referencia:
+`frappe-infrastructure/projects/buzola_translations/plan-rector.md` (rector) y el plan cerrado
+`working_docs/archive/PLAN_etapa1_infra_y_metodologia.md`. (Ya **no** hay plan en `working_docs/active/`.)
 
 Objetivo inmediato:
-El registro de la app en el bench quedó **validado y aceptado** (apps.txt + `.pth`, importable,
-reconocida por bench). Siguiente: la **etapa funcional** de traducciones, en otra conversación.
+Ninguno de setup pendiente. La siguiente etapa es la **extracción funcional** de traducciones,
+en otra conversación.
 
 Criterio de avance:
 `version-16` sincronizada (`b72d34c`), CI verde en la rama protegida y ruleset exigiendo PR + checks.
@@ -51,7 +52,7 @@ Criterio de avance:
   (dependencia de *build isolation*) no está en el env del bench. Clon temporal eliminado.
 
 ### En progreso
-- (Cierre documental de este estado — esta rama.)
+- Ninguno (etapa de setup cerrada). El commit de este cierre queda en la rama `docs/update-setup-continuity`.
 
 ### Pendiente inmediato
 1. Etapa funcional (otra conversación): extracción real del catálogo (`generate-pot-file`),
