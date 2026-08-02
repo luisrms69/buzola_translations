@@ -1,7 +1,19 @@
 # PLAN — Etapa 1: infraestructura, investigación y metodología
 
-Plan de trabajo activo. Fuente rectora: `frappe-infrastructure/projects/buzola_translations/plan-rector.md`.
-No es documentación publicable. Se archiva o migra al cerrar la etapa.
+> **ESTADO: CERRADO — 2026-08-01.** Etapa de infraestructura/configuración completada; archivado
+> desde `working_docs/active/`.
+>
+> **Resultado final:** repositorio público con remoto `upstream` por HTTPS, rama `version-16`
+> protegida por el ruleset `version-16-protection` (PR obligatorio; force push y borrado bloqueados;
+> historial lineal; checks obligatorios `Validate`, `Pre-commit`, `Dependency audit`; sin bypass),
+> CI/lint integrados (PR #1 mergeado en `b72d34c`), clon limpio validado, registro funcional de la
+> app en el bench aceptado, y mecanismo `.po` validado end-to-end.
+>
+> **Pendiente (otra conversación):** extracción y revisión de traducciones; `locale/es.po` aún no
+> se ha generado.
+
+Fuente rectora: `frappe-infrastructure/projects/buzola_translations/plan-rector.md`.
+No es documentación publicable. Archivado al cerrar la etapa.
 
 ## Objetivo de la etapa
 
@@ -31,7 +43,15 @@ traducción con una muestra — **sin** generar aún el catálogo completo ni lo
 
 ### F5 — Publicación del repositorio (HECHO — 2026-08-01)
 - [x] Repo público `https://github.com/luisrms69/buzola_translations`, remoto `upstream` HTTPS.
-- [x] `version-16 -> upstream/version-16`, HEAD `cc241f5`, 2 commits publicados, sin `origin`.
+- [x] `version-16 -> upstream/version-16`, 2 commits publicados, sin `origin`.
+
+### F6 — CI/CD, protección de rama y clon limpio (HECHO — 2026-08-01)
+- [x] Workflows `ci.yml` + `linter.yml` integrados vía PR #1 (mergeado en `b72d34c`); CI en verde.
+- [x] Ruleset `version-16-protection` activo: PR obligatorio, force push/borrado bloqueados,
+      historial lineal, checks obligatorios (`Validate`, `Pre-commit`, `Dependency audit`), sin bypass.
+- [x] Registro de la app en el bench validado como funcional (apps.txt + `.pth`; `.dist-info` opcional).
+- [x] Validación desde **clon limpio** de `version-16` (`b72d34c`): estructura, workflows, import,
+      ruff, `mkdocs --strict`, sin artefactos ni `.claude/`; build confirmado por el check `Validate`.
 
 ## Cerrado / pendiente
 - **Infraestructura: CERRADA** (F1–F5). El repo está apto para la etapa funcional.
