@@ -44,8 +44,13 @@ Criterio de avance:
 - (Cierre documental de este estado — esta rama.)
 
 ### Pendiente inmediato
-1. **Revisar el registro canónico de la app en el bench** (`sites/apps.txt` + `.pth` de instalación
-   editable; confirmar que reflejan una app correctamente registrada).
+1. **Normalizar el registro de la app en el bench.** Estado verificado: está en `sites/apps.txt`
+   (línea 21) y es importable vía `.pth`, pero **falta el `.dist-info`** (el `.pth` se creó a mano;
+   `importlib.metadata.version('buzola_translations')` → `PackageNotFoundError`). Las apps canónicas
+   tienen `.pth` **+** `.dist-info`. Normalizar con una **instalación editable** del paquete
+   (`pip install -e apps/buzola_translations`, que es lo que hace `bench` internamente) → la ejecuta
+   el **usuario** (el hook bloquea instalación de paquetes para Claude). **No borrar** el `.pth`
+   manual hasta que la instalación editable cree su reemplazo. No instala en ningún sitio.
 2. Etapa funcional (otra conversación): extracción real del catálogo (`generate-pot-file`),
    consolidación en `review/` (≤6 archivos), propuestas, revisión y generación de `locale/es.po` real.
 
@@ -79,8 +84,9 @@ Criterio de avance:
 ## Riesgos / cuidados
 - El override depende del orden de instalación (BD), no de `apps.txt`: buzola debe ser la última
   instalación en cada sitio.
-- Registro de la app en el bench vía `apps.txt` + `.pth` (no versionados; altas manuales del
-  scaffold). buzola quedó **DESINSTALADA** de `<site>`; helpdesk/telephony siguen instaladas.
+- Registro de la app en el bench vía `apps.txt` + `.pth` manual, **sin `.dist-info`** (no canónico
+  del todo; import y reconocimiento por bench funcionan, lo demostró la prueba mínima). Normalizar con
+  instalación editable (acción del usuario). buzola **DESINSTALADA** de `<site>`; helpdesk/telephony siguen.
 - `crm` en `develop` y `helpdesk` en `main`: sus `msgid` pueden moverse entre versiones.
 
 ---
