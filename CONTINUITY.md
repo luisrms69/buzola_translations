@@ -18,9 +18,8 @@ Plan que estoy siguiendo:
 `working_docs/active/PLAN_etapa1_infra_y_metodologia.md`.
 
 Objetivo inmediato:
-Revisar el **registro canónico de la app en el bench** (`sites/apps.txt` + `.pth` fueron altas
-manuales del scaffold no interactivo; conviene confirmar que quedan como corresponde). Después,
-la etapa funcional de traducciones en otra conversación.
+El registro de la app en el bench quedó **validado y aceptado** (apps.txt + `.pth`, importable,
+reconocida por bench). Siguiente: la **etapa funcional** de traducciones, en otra conversación.
 
 Criterio de avance:
 `version-16` sincronizada (`b72d34c`), CI verde en la rama protegida y ruleset exigiendo PR + checks.
@@ -39,20 +38,22 @@ Criterio de avance:
     eliminación bloqueada (`deletion`), historial lineal (`required_linear_history`),
     checks obligatorios: `Validate`, `Pre-commit`, `Dependency audit`.
 - `version-16` local y remota **sincronizadas** en `b72d34c`; ramas de trabajo previas eliminadas.
+- **Registro de la app en el bench: funcional y validado.** Está en `sites/apps.txt` (línea 21),
+  el paquete es importable y bench la reconoce; la prueba de install/uninstall ya funcionó. El `.pth`
+  actual queda **aceptado**. Falta `.dist-info` (metadata de instalación editable), pero es
+  **opcional y no requerido** para el setup — no bloquea el funcionamiento.
 
 ### En progreso
 - (Cierre documental de este estado — esta rama.)
 
 ### Pendiente inmediato
-1. **Normalizar el registro de la app en el bench.** Estado verificado: está en `sites/apps.txt`
-   (línea 21) y es importable vía `.pth`, pero **falta el `.dist-info`** (el `.pth` se creó a mano;
-   `importlib.metadata.version('buzola_translations')` → `PackageNotFoundError`). Las apps canónicas
-   tienen `.pth` **+** `.dist-info`. Normalizar con una **instalación editable** del paquete
-   (`pip install -e apps/buzola_translations`, que es lo que hace `bench` internamente) → la ejecuta
-   el **usuario** (el hook bloquea instalación de paquetes para Claude). **No borrar** el `.pth`
-   manual hasta que la instalación editable cree su reemplazo. No instala en ningún sitio.
-2. Etapa funcional (otra conversación): extracción real del catálogo (`generate-pot-file`),
+1. Etapa funcional (otra conversación): extracción real del catálogo (`generate-pot-file`),
    consolidación en `review/` (≤6 archivos), propuestas, revisión y generación de `locale/es.po` real.
+
+### Observaciones opcionales (no bloqueantes)
+- Si en el futuro se quisiera el registro 100% canónico (para que `importlib.metadata` liste la app),
+  bastaría una **instalación editable** del paquete en el env del bench. Es opcional; no se hace en
+  esta etapa y no debe modificarse el entorno por ello.
 
 ### No repetir
 - Commit/push directo a `version-16` (protegida): todo por rama de trabajo + PR.
@@ -84,9 +85,8 @@ Criterio de avance:
 ## Riesgos / cuidados
 - El override depende del orden de instalación (BD), no de `apps.txt`: buzola debe ser la última
   instalación en cada sitio.
-- Registro de la app en el bench vía `apps.txt` + `.pth` manual, **sin `.dist-info`** (no canónico
-  del todo; import y reconocimiento por bench funcionan, lo demostró la prueba mínima). Normalizar con
-  instalación editable (acción del usuario). buzola **DESINSTALADA** de `<site>`; helpdesk/telephony siguen.
+- Registro de la app en el bench vía `apps.txt` + `.pth` (aceptado, funcional). `.dist-info` opcional,
+  no requerido. buzola **DESINSTALADA** de `<site>`; helpdesk/telephony siguen instaladas.
 - `crm` en `develop` y `helpdesk` en `main`: sus `msgid` pueden moverse entre versiones.
 
 ---
