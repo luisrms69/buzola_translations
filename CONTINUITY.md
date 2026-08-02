@@ -42,6 +42,13 @@ Criterio de avance:
   el paquete es importable y bench la reconoce; la prueba de install/uninstall ya funcionó. El `.pth`
   actual queda **aceptado**. Falta `.dist-info` (metadata de instalación editable), pero es
   **opcional y no requerido** para el setup — no bloquea el funcionamiento.
+- **Clon limpio validado (punto 8).** Clonado `version-16` (`b72d34c`) desde HTTPS a ruta temporal,
+  sin copiar del original. Verde: estructura completa del scaffold, `.github/workflows/{ci,linter}.yml`
+  presentes, sin `.claude/`/claves/sitios/artefactos, import verificado **desde el clon**,
+  `ruff check` + `ruff format --check`, `mkdocs build --strict`, parseo TOML/YAML, workflows
+  **autocontenidos** (sin rutas locales/absolutas). El build del paquete quedó confirmado por el
+  check `Validate` (verde) en Actions sobre `b72d34c` — no reproducible localmente porque `flit_core`
+  (dependencia de *build isolation*) no está en el env del bench. Clon temporal eliminado.
 
 ### En progreso
 - (Cierre documental de este estado — esta rama.)

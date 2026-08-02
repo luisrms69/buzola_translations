@@ -31,7 +31,15 @@ traducción con una muestra — **sin** generar aún el catálogo completo ni lo
 
 ### F5 — Publicación del repositorio (HECHO — 2026-08-01)
 - [x] Repo público `https://github.com/luisrms69/buzola_translations`, remoto `upstream` HTTPS.
-- [x] `version-16 -> upstream/version-16`, HEAD `cc241f5`, 2 commits publicados, sin `origin`.
+- [x] `version-16 -> upstream/version-16`, 2 commits publicados, sin `origin`.
+
+### F6 — CI/CD, protección de rama y clon limpio (HECHO — 2026-08-01)
+- [x] Workflows `ci.yml` + `linter.yml` integrados vía PR #1 (mergeado en `b72d34c`); CI en verde.
+- [x] Ruleset `version-16-protection` activo: PR obligatorio, force push/borrado bloqueados,
+      historial lineal, checks obligatorios (`Validate`, `Pre-commit`, `Dependency audit`), sin bypass.
+- [x] Registro de la app en el bench validado como funcional (apps.txt + `.pth`; `.dist-info` opcional).
+- [x] Validación desde **clon limpio** de `version-16` (`b72d34c`): estructura, workflows, import,
+      ruff, `mkdocs --strict`, sin artefactos ni `.claude/`; build confirmado por el check `Validate`.
 
 ## Cerrado / pendiente
 - **Infraestructura: CERRADA** (F1–F5). El repo está apto para la etapa funcional.
