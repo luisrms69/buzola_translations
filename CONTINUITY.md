@@ -1,61 +1,66 @@
 # CONTINUITY.md — buzola_translations
 
 **Fecha:** 2026-08-01
-**Rama activa:** `version-16` (publicada en `upstream`, HTTPS)
-**Tarea actual:** Setup del repositorio **COMPLETADO**. Listo para la etapa funcional (extracción del catálogo), que se realizará en **otra conversación**.
+**Rama activa:** `docs/update-setup-continuity` (rama de trabajo; `version-16` es la protegida)
+**Tarea actual:** Cierre documental del setup. El **setup técnico del repositorio quedó cerrado**.
 
 ---
 
 ## Recuperación rápida
 
 Estoy trabajando en:
-La app de traducciones locales del ecosistema. El setup quedó **cerrado**: scaffold estándar,
-prueba mínima `.po` verde y repositorio remoto publicado. Falta la **etapa funcional** (extraer,
-proponer y revisar traducciones), que va en otra conversación.
+La app de traducciones locales del ecosistema. El **setup técnico está cerrado**: scaffold,
+prueba `.po` verde, repo público, CI/CD integrado y rama protegida con ruleset. Falta la **etapa
+funcional** (extraer/proponer/revisar traducciones), que va en **otra conversación**.
 
 Plan que estoy siguiendo:
 `frappe-infrastructure/projects/buzola_translations/plan-rector.md` (rector) y
 `working_docs/active/PLAN_etapa1_infra_y_metodologia.md`.
 
 Objetivo inmediato:
-Arrancar la extracción real del catálogo (otra conversación): `generate-pot-file`, consolidar en
-`review/` (≤6 archivos), proponer traducciones y, tras aprobación, generar `locale/es.po` real.
+Revisar el **registro canónico de la app en el bench** (`sites/apps.txt` + `.pth` fueron altas
+manuales del scaffold no interactivo; conviene confirmar que quedan como corresponde). Después,
+la etapa funcional de traducciones en otra conversación.
 
 Criterio de avance:
-Repo publicado con HEAD `cc241f5`, working tree limpio, apto para la etapa funcional.
+`version-16` sincronizada (`b72d34c`), CI verde en la rama protegida y ruleset exigiendo PR + checks.
 
 ---
 
 ## Estado actual
 
-### Ya cerrado
-- Auditoría de reglas de frappe-infrastructure; investigación del mecanismo v16 (`docs/adr/0000`);
-  inventario de las 5 apps (helpdesk `main` + telephony instaladas en `<site>`).
-- Scaffold estándar + symlink `.claude/commands`; 2 commits: `985592c` (scaffold) y `cc241f5` (docs).
-- Prueba mínima end-to-end **VERDE**: `.po` sobrescribe erpnext+hrms, persiste y revierte.
-- **Repo remoto publicado:** `https://github.com/luisrms69/buzola_translations` (PUBLIC), remoto
-  `upstream` **HTTPS**, `version-16 -> upstream/version-16`, HEAD `cc241f5`. Sin `origin`.
+### Ya cerrado — setup técnico del repositorio
+- Scaffold estándar + prueba mínima `.po` end-to-end VERDE (sobrescribe, persiste, revierte).
+- Repo público `https://github.com/luisrms69/buzola_translations`, remoto `upstream` HTTPS.
+- **PR #1 mergeado (squash) en `b72d34c`**: integra `.github/workflows/ci.yml` y `linter.yml`.
+- **CI/CD integrado** — checks: `Validate` (CI), `Pre-commit` y `Dependency audit` (Linters).
+- **Ruleset `version-16-protection` activo** sobre `refs/heads/version-16`, sin bypass:
+  - PR obligatorio (`pull_request`), force push bloqueado (`non_fast_forward`),
+    eliminación bloqueada (`deletion`), historial lineal (`required_linear_history`),
+    checks obligatorios: `Validate`, `Pre-commit`, `Dependency audit`.
+- `version-16` local y remota **sincronizadas** en `b72d34c`; ramas de trabajo previas eliminadas.
 
 ### En progreso
-- (Setup cerrado; sin trabajo en curso.)
+- (Cierre documental de este estado — esta rama.)
 
-### Pendiente inmediato (etapa funcional — otra conversación)
-1. Extracción real de cadenas (`generate-pot-file`) y consolidación en `review/` (≤6 archivos).
-2. Propuestas + revisión humana; después generar `locale/es.po` real.
+### Pendiente inmediato
+1. **Revisar el registro canónico de la app en el bench** (`sites/apps.txt` + `.pth` de instalación
+   editable; confirmar que reflejan una app correctamente registrada).
+2. Etapa funcional (otra conversación): extracción real del catálogo (`generate-pot-file`),
+   consolidación en `review/` (≤6 archivos), propuestas, revisión y generación de `locale/es.po` real.
 
 ### No repetir
-- helpdesk `develop` (exige Python 3.14 pero es rama móvil) — se usó `main`.
-- `docs/active/` (no canónico; `/doc-review` lo bloquea).
-- Dejar cadenas de prueba `[BUZOLA]` en el catálogo versionable.
-- SSH para GitHub: el estándar es **HTTPS + `gh`** (nunca inspeccionar/usar claves).
+- Commit/push directo a `version-16` (protegida): todo por rama de trabajo + PR.
+- helpdesk `develop`; `docs/active/`; cadenas de prueba `[BUZOLA]` en el catálogo.
+- SSH para GitHub: el estándar es HTTPS + `gh`; nunca inspeccionar/usar claves.
 
 ---
 
 ## Decisiones vigentes
 - Catálogo local en `buzola_translations/locale/es.po`; instalar la app **al final** para override
   (validado). Sin DocTypes, fixtures ni `required_apps`.
-- `.claude/` completo se ignora. `.po` validado (ADR-0000 Aceptado); CSV solo como fallback.
-- GitHub por **HTTPS + `gh`**, remoto `upstream`.
+- `.po` validado (ADR-0000 Aceptado); CSV solo como fallback. `.claude/` ignorado.
+- GitHub por **HTTPS + `gh`**, remoto `upstream`, rama protegida `version-16` con ruleset.
 - `locale/es.po` **todavía NO contiene traducciones reales** (el catálogo real no se ha generado).
 
 ---
@@ -63,7 +68,7 @@ Repo publicado con HEAD `cc241f5`, working tree limpio, apto para la etapa funci
 ## Archivos relevantes ahora
 
 ### Leer primero
-- `docs/adr/0000-estado-inicial-app.md` (decisión + tabla de validación).
+- `docs/adr/0000-estado-inicial-app.md` (decisión + validación).
 - `frappe-infrastructure/projects/buzola_translations/plan-rector.md`.
 
 ### No tocar
@@ -74,12 +79,11 @@ Repo publicado con HEAD `cc241f5`, working tree limpio, apto para la etapa funci
 ## Riesgos / cuidados
 - El override depende del orden de instalación (BD), no de `apps.txt`: buzola debe ser la última
   instalación en cada sitio.
-- Registro de la app en el bench vía `apps.txt` + `.pth` (no versionados). buzola quedó
-  **DESINSTALADA** de `<site>`; helpdesk/telephony siguen instaladas.
+- Registro de la app en el bench vía `apps.txt` + `.pth` (no versionados; altas manuales del
+  scaffold). buzola quedó **DESINSTALADA** de `<site>`; helpdesk/telephony siguen instaladas.
 - `crm` en `develop` y `helpdesk` en `main`: sus `msgid` pueden moverse entre versiones.
 
 ---
 
 ## Información faltante
 - ¿Catálogo único `es.po` o variante `es_MX.po` separada? (por ahora solo `es.po`).
-- Política de CI para esta app.
