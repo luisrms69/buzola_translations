@@ -1,103 +1,95 @@
 # CONTINUITY.md — buzola_translations
 
-**Fecha:** 2026-08-01
-**Rama activa:** `docs/update-setup-continuity` (rama de trabajo; `version-16` es la protegida)
-**Tarea actual:** **Etapa de setup CERRADA** (punto 9). Siguiente etapa: extracción y revisión de traducciones (otra conversación).
+**Fecha:** 2026-08-02
+**Rama activa:** `feat/catalog-extraction` (rama de trabajo; `version-16` es la protegida)
+**Tarea actual:** Catálogo español **revisado, generado, compilado, instalado y validado** para Frappe +
+ERPNext + HRMS. Pendiente: revisión de Helpdesk y CRM.
 
 ---
 
 ## Recuperación rápida
 
 Estoy trabajando en:
-La app de traducciones locales del ecosistema. La **etapa de setup está COMPLETAMENTE cerrada**
-(scaffold, prueba `.po` verde, repo público, CI/CD, rama protegida con ruleset, clon limpio
-validado). El plan de la etapa 1 quedó **archivado**. La **etapa funcional** (extraer/proponer/
-revisar traducciones y generar `locale/es.po`) va en **otra conversación**.
+El catálogo local de traducciones. Ya están **cerradas** la revisión humana de **Frappe, ERPNext
+(operaciones y contabilidad/finanzas) y HRMS**. Con esos CSV aprobados se generó el `.po` oficial, se
+compiló el `.mo` y se **instaló y validó funcionalmente** `buzola_translations` en dos sitios no
+productivos. Falta revisar **Helpdesk y CRM** y luego regenerar el `.po` incluyéndolos.
 
-Fuente rectora / referencia:
-`frappe-infrastructure/projects/buzola_translations/plan-rector.md` (rector) y el plan cerrado
-`working_docs/archive/PLAN_etapa1_infra_y_metodologia.md`. (Ya **no** hay plan en `working_docs/active/`.)
+Plan que estoy siguiendo:
+`working_docs/active/PLAN_etapa2_catalogo_completo.md` (fuente rectora:
+`frappe-infrastructure/projects/buzola_translations/plan-rector.md`).
 
 Objetivo inmediato:
-Ninguno de setup pendiente. La siguiente etapa es la **extracción funcional** de traducciones,
-en otra conversación.
+Punto de recuperación (este commit). Después: **revisión de Helpdesk y CRM** (bloque 05), regenerar
+`es.po` incluyéndolos, y resolver la **decisión terminológica de `Payment Entry`**.
 
 Criterio de avance:
-`version-16` sincronizada (`b72d34c`), CI verde en la rama protegida y ruleset exigiendo PR + checks.
+22 064 `entry_key` únicos en `review/`; `es.po` determinista (byte-idéntico) con 0 pérdidas de
+placeholders; `.mo` compila; verificador de orden en verde en los sitios de validación.
 
 ---
 
 ## Estado actual
 
-### Ya cerrado — setup técnico del repositorio
-- Scaffold estándar + prueba mínima `.po` end-to-end VERDE (sobrescribe, persiste, revierte).
-- Repo público `https://github.com/luisrms69/buzola_translations`, remoto `upstream` HTTPS.
-- **PR #1 mergeado (squash) en `b72d34c`**: integra `.github/workflows/ci.yml` y `linter.yml`.
-- **CI/CD integrado** — checks: `Validate` (CI), `Pre-commit` y `Dependency audit` (Linters).
-- **Ruleset `version-16-protection` activo** sobre `refs/heads/version-16`, sin bypass:
-  - PR obligatorio (`pull_request`), force push bloqueado (`non_fast_forward`),
-    eliminación bloqueada (`deletion`), historial lineal (`required_linear_history`),
-    checks obligatorios: `Validate`, `Pre-commit`, `Dependency audit`.
-- `version-16` local y remota **sincronizadas** en `b72d34c`; ramas de trabajo previas eliminadas.
-- **Registro de la app en el bench: funcional y validado.** Está en `sites/apps.txt` (línea 21),
-  el paquete es importable y bench la reconoce; la prueba de install/uninstall ya funcionó. El `.pth`
-  actual queda **aceptado**. Falta `.dist-info` (metadata de instalación editable), pero es
-  **opcional y no requerido** para el setup — no bloquea el funcionamiento.
-- **Clon limpio validado (punto 8).** Clonado `version-16` (`b72d34c`) desde HTTPS a ruta temporal,
-  sin copiar del original. Verde: estructura completa del scaffold, `.github/workflows/{ci,linter}.yml`
-  presentes, sin `.claude/`/claves/sitios/artefactos, import verificado **desde el clon**,
-  `ruff check` + `ruff format --check`, `mkdocs build --strict`, parseo TOML/YAML, workflows
-  **autocontenidos** (sin rutas locales/absolutas). El build del paquete quedó confirmado por el
-  check `Validate` (verde) en Actions sobre `b72d34c` — no reproducible localmente porque `flit_core`
-  (dependencia de *build isolation*) no está en el env del bench. Clon temporal eliminado.
-
-### En progreso
-- Ninguno (etapa de setup cerrada). El commit de este cierre queda en la rama `docs/update-setup-continuity`.
+### Ya cerrado
+- **Revisión humana:** Frappe (6 306), ERPNext operaciones (bloque 02) y contabilidad/finanzas (bloque
+  03), HRMS (2 284). Estados controlados; sin filas activas pendientes en esos bloques.
+- **Generador determinista** `scripts/build_po.py` → `buzola_translations/locale/es.po` (**18 417
+  entradas**, `Language: es`, UTF-8, 0 fuzzy, 0 duplicados, 0 conflictos Gettext, 8 dedups). Manifiesto
+  `working_docs/active/po_manifest.json`.
+- **Compilación** `.mo` con `bench compile-po-to-mo` (byte-idéntica). Excluye Helpdesk/CRM (119).
+- **Instalado y validado** en `buzola-demo.dev` (frappe+erpnext+hrms) y `facturacion-v16.dev`
+  (frappe+erpnext+facturacion_mexico+payments): `buzola_translations` queda **al final** de
+  `installed_apps`; las traducciones locales **prevalecen**; identidad técnica de DocTypes **intacta**;
+  apps personalizadas cargan sin errores. `buzola_translations` es **exclusivamente lingüística**
+  (sin DocTypes/hooks/overrides/fixtures/patches).
+- **Auditorías:** `doctype_terminology_changes.csv` (444 nombres visibles con cambio; incluye
+  `Payment Entry`), `custom_apps_translation_dependency_audit.md` (0 dependencias técnicas reales),
+  `install_and_reversibility.md` (orden + reversibilidad + verificador).
+- **Verificador de orden** `scripts/check_translation_order.py` (+ `test_check_translation_order.py`,
+  4/4 PASS).
 
 ### Pendiente inmediato
-1. Etapa funcional (otra conversación): extracción real del catálogo (`generate-pot-file`),
-   consolidación en `review/` (≤6 archivos), propuestas, revisión y generación de `locale/es.po` real.
-
-### Observaciones opcionales (no bloqueantes)
-- Si en el futuro se quisiera el registro 100% canónico (para que `importlib.metadata` liste la app),
-  bastaría una **instalación editable** del paquete en el env del bench. Es opcional; no se hace en
-  esta etapa y no debe modificarse el entorno por ello.
+1. Revisión humana de **Helpdesk** y **CRM** (bloque 05).
+2. Regenerar `es.po` incluyendo Helpdesk/CRM tras su revisión.
+3. **Decisión `Payment Entry`**: catálogo propone **"Registro de Pago"**; clientes/cursos usan
+   **"Entrada de pago"** — pendiente de consulta transversal (ver `doctype_terminology_changes.csv`).
 
 ### No repetir
-- Commit/push directo a `version-16` (protegida): todo por rama de trabajo + PR.
-- helpdesk `develop`; `docs/active/`; cadenas de prueba `[BUZOLA]` en el catálogo.
-- SSH para GitHub: el estándar es HTTPS + `gh`; nunca inspeccionar/usar claves.
+- Commit/push directo a `version-16` (protegida): todo por rama de trabajo + PR; solo `/ship`.
+- Incluir Helpdesk/CRM en el `.po` antes de su revisión.
+- Editar la BD para forzar el orden de apps: se usa `install-app`/`uninstall-app` (soportado).
+- SSH para GitHub: estándar HTTPS + `gh`.
 
 ---
 
 ## Decisiones vigentes
-- Catálogo local en `buzola_translations/locale/es.po`; instalar la app **al final** para override
-  (validado). Sin DocTypes, fixtures ni `required_apps`.
-- `.po` validado (ADR-0000 Aceptado); CSV solo como fallback. `.claude/` ignorado.
-- GitHub por **HTTPS + `gh`**, remoto `upstream`, rama protegida `version-16` con ruleset.
-- `locale/es.po` **todavía NO contiene traducciones reales** (el catálogo real no se ha generado).
+- Fuente autoritativa = los 6 CSV de `review/`; el `.po` se **genera** de ahí (no se edita a mano).
+- Instalar `buzola_translations` **al final** de `installed_apps` para override; verificar con
+  `scripts/check_translation_order.py --site <site>`.
+- Entidades CRM en inglés: `Lead`, `Deal`; `Prospect`→Prospecto, `Opportunity`→Oportunidad;
+  `Job Card`→Vale de Trabajo.
+- Estados excluidos del `.po`: po_huérfana/ambigua/conflicto/especializada/sin propuesta.
 
 ---
 
 ## Archivos relevantes ahora
-
 ### Leer primero
-- `docs/adr/0000-estado-inicial-app.md` (decisión + validación).
-- `frappe-infrastructure/projects/buzola_translations/plan-rector.md`.
-
+- `working_docs/active/PLAN_etapa2_catalogo_completo.md` (estado por app + método).
+- `working_docs/active/doctype_terminology_changes.csv` (incluye caso `Payment Entry`).
+### Probablemente editar
+- `review/05_helpdesk_crm.csv` (siguiente revisión) → luego regenerar `es.po`.
 ### No tocar
-- `es.po` de apps de terceros (`<bench-path>/apps/{frappe,erpnext,hrms,helpdesk,crm}/.../locale/es.po`).
+- `es.po` de apps de terceros; la BD de los sitios (usar comandos soportados).
 
 ---
 
 ## Riesgos / cuidados
-- El override depende del orden de instalación (BD), no de `apps.txt`: buzola debe ser la última
-  instalación en cada sitio.
-- Registro de la app en el bench vía `apps.txt` + `.pth` (aceptado, funcional). `.dist-info` opcional,
-  no requerido. buzola **DESINSTALADA** de `<site>`; helpdesk/telephony siguen instaladas.
-- `crm` en `develop` y `helpdesk` en `main`: sus `msgid` pueden moverse entre versiones.
+- El override depende del orden de instalación (BD), no de `apps.txt`: al instalar otra app después,
+  `buzola_translations` deja de ser la última → correr el verificador y reinstalarla al final.
+- `.mo` en `sites/assets` es artefacto (gitignored); no versionar. Respaldos/one_offs/.artifacts fuera del commit.
 
 ---
 
 ## Información faltante
-- ¿Catálogo único `es.po` o variante `es_MX.po` separada? (por ahora solo `es.po`).
+- ¿Migrar o conservar nombres visibles de DocType que cambian (444, p. ej. `Payment Entry`)? — pendiente de consulta a clientes.
