@@ -1,95 +1,86 @@
 # CONTINUITY.md — buzola_translations
 
-**Fecha:** 2026-08-02
+**Fecha:** 2026-08-05
 **Rama activa:** `feat/catalog-extraction` (rama de trabajo; `version-16` es la protegida)
-**Tarea actual:** Catálogo español **revisado, generado, compilado, instalado y validado** para Frappe +
-ERPNext + HRMS. Pendiente: revisión de Helpdesk y CRM.
+**Tarea actual:** Catálogo español **auditado y definitivo** para Frappe, ERPNext y HRMS v16,
+**reproducible** desde `review/*.csv` con `scripts/build_po.py`. Versión **0.1.0**. PR **#3 abierto** a `version-16`.
 
 ---
 
 ## Recuperación rápida
 
 Estoy trabajando en:
-El catálogo local de traducciones. Ya están **cerradas** la revisión humana de **Frappe, ERPNext
-(operaciones y contabilidad/finanzas) y HRMS**. Con esos CSV aprobados se generó el `.po` oficial, se
-compiló el `.mo` y se **instaló y validó funcionalmente** `buzola_translations` en dos sitios no
-productivos. Falta revisar **Helpdesk y CRM** y luego regenerar el `.po` incluyéndolos.
+La publicación del catálogo español **auditado (auditoría v3, cerrada)**. El catálogo **existe y es real**:
+`buzola_translations/locale/es.po` con **18,417 traducciones auditadas**. La auditoría de **Frappe, ERPNext y
+HRMS está cerrada**. El catálogo es **reproducible** ejecutando el generador oficial sobre los CSV de `review/`.
 
 Plan que estoy siguiendo:
-`working_docs/active/PLAN_etapa2_catalogo_completo.md` (fuente rectora:
-`frappe-infrastructure/projects/buzola_translations/plan-rector.md`).
+Fuente autoritativa = `review/*.csv` + `scripts/build_po.py`. La revisión externa (auditoría v3) quedó
+incorporada a los CSV (356 filas `CAMBIAR` actualizadas) y el `.po` se **regenera** desde ahí.
 
 Objetivo inmediato:
-Punto de recuperación (este commit). Después: **revisión de Helpdesk y CRM** (bloque 05), regenerar
-`es.po` incluyéndolos, y resolver la **decisión terminológica de `Payment Entry`**.
+PR **#3** (`feat/catalog-extraction` → `version-16`) abierto; pendiente de merge manual del usuario.
 
 Criterio de avance:
-22 064 `entry_key` únicos en `review/`; `es.po` determinista (byte-idéntico) con 0 pérdidas de
-placeholders; `.mo` compila; verificador de orden en verde en los sitios de validación.
+`build_po.py` regenera `es.po` con 18,417 entradas, 0 vacías/duplicadas/fuzzy, 0 pérdida de placeholders, y
+contenido `msgstr` idéntico a la auditoría v3.
 
 ---
 
 ## Estado actual
 
 ### Ya cerrado
-- **Revisión humana:** Frappe (6 306), ERPNext operaciones (bloque 02) y contabilidad/finanzas (bloque
-  03), HRMS (2 284). Estados controlados; sin filas activas pendientes en esos bloques.
-- **Generador determinista** `scripts/build_po.py` → `buzola_translations/locale/es.po` (**18 417
-  entradas**, `Language: es`, UTF-8, 0 fuzzy, 0 duplicados, 0 conflictos Gettext, 8 dedups). Manifiesto
-  `working_docs/active/po_manifest.json`.
-- **Compilación** `.mo` con `bench compile-po-to-mo` (byte-idéntica). Excluye Helpdesk/CRM (119).
-- **Instalado y validado** en `buzola-demo.dev` (frappe+erpnext+hrms) y `facturacion-v16.dev`
-  (frappe+erpnext+facturacion_mexico+payments): `buzola_translations` queda **al final** de
-  `installed_apps`; las traducciones locales **prevalecen**; identidad técnica de DocTypes **intacta**;
-  apps personalizadas cargan sin errores. `buzola_translations` es **exclusivamente lingüística**
-  (sin DocTypes/hooks/overrides/fixtures/patches).
-- **Auditorías:** `doctype_terminology_changes.csv` (444 nombres visibles con cambio; incluye
-  `Payment Entry`), `custom_apps_translation_dependency_audit.md` (0 dependencias técnicas reales),
-  `install_and_reversibility.md` (orden + reversibilidad + verificador).
-- **Verificador de orden** `scripts/check_translation_order.py` (+ `test_check_translation_order.py`,
-  4/4 PASS).
+- **Catálogo definitivo:** `locale/es.po` = **18,417 entradas** auditadas (Frappe 6183 + ERPNext 9996 +
+  HRMS 2246 elegibles − 8 dedups). SHA256 `4294217992df5aaa1778384d84a753020b4f7e07bfbe01d2f897a9ac06dee555`
+  (generado por `build_po.py`; ver `working_docs/active/po_manifest.json`).
+- **Reproducibilidad:** `env/bin/python apps/buzola_translations/scripts/build_po.py` regenera el `.po` desde
+  los CSV; contenido idéntico a la auditoría v3 (0 `msgstr` distintos).
+- **Decisiones terminológicas resueltas:** `Item→Artículo`, `Items→Artículos`, `Rate→Precio`,
+  **`Payment Entry` resuelto como `Registro de Pago`**, `Mode of Payment→Forma de Pago`,
+  `Purchase Receipt→Recepción de compra`, `Stock Reconciliation→Conciliación de inventario` (sentence case).
+- **Versión:** `0.1.0` (`buzola_translations/__init__.py`).
+- **Compilación:** `bench compile-po-to-mo --app buzola_translations` (el `.mo` vive en `sites/assets`, no se
+  versiona).
+- **PR #3 abierto** a `version-16` (OPEN; sin merge).
 
 ### Pendiente inmediato
-1. Revisión humana de **Helpdesk** y **CRM** (bloque 05).
-2. Regenerar `es.po` incluyendo Helpdesk/CRM tras su revisión.
-3. **Decisión `Payment Entry`**: catálogo propone **"Registro de Pago"**; clientes/cursos usan
-   **"Entrada de pago"** — pendiente de consulta transversal (ver `doctype_terminology_changes.csv`).
+1. Commit de reproducibilidad (CSV actualizados + `.po` regenerado + `po_manifest` + `CONTINUITY`) — pendiente
+   de autorización de `/ship commit`.
+2. Merge de PR #3 (acción manual del usuario en GitHub).
+
+### Fuera de este catálogo (etapa futura)
+- **Helpdesk y CRM** NO están incluidos en este catálogo; quedan **pendientes para una etapa futura**.
 
 ### No repetir
-- Commit/push directo a `version-16` (protegida): todo por rama de trabajo + PR; solo `/ship`.
-- Incluir Helpdesk/CRM en el `.po` antes de su revisión.
-- Editar la BD para forzar el orden de apps: se usa `install-app`/`uninstall-app` (soportado).
-- SSH para GitHub: estándar HTTPS + `gh`.
+- No editar `build_po.py` para imitar el encabezado externo (el encabezado oficial de babel es el válido).
+- No versionar `.mo` ni los directorios `working_docs/active/semantic_audit/` ni `client_translation_impact/`.
+- El `.po` se **genera** desde los CSV; no se edita a mano.
 
 ---
 
 ## Decisiones vigentes
-- Fuente autoritativa = los 6 CSV de `review/`; el `.po` se **genera** de ahí (no se edita a mano).
-- Instalar `buzola_translations` **al final** de `installed_apps` para override; verificar con
-  `scripts/check_translation_order.py --site <site>`.
-- Entidades CRM en inglés: `Lead`, `Deal`; `Prospect`→Prospecto, `Opportunity`→Oportunidad;
-  `Job Card`→Vale de Trabajo.
-- Estados excluidos del `.po`: po_huérfana/ambigua/conflicto/especializada/sin propuesta.
+- Fuente de verdad = `review/*.csv` + `scripts/build_po.py`. El `.po` es un artefacto reproducible.
+- `buzola_translations` se instala **al final** de `installed_apps` para que su `.mo` prevalezca.
 
 ---
 
 ## Archivos relevantes ahora
 ### Leer primero
-- `working_docs/active/PLAN_etapa2_catalogo_completo.md` (estado por app + método).
-- `working_docs/active/doctype_terminology_changes.csv` (incluye caso `Payment Entry`).
+- `working_docs/active/po_manifest.json` (sha, conteos, comando de generación).
+- `scripts/build_po.py` (generador oficial).
 ### Probablemente editar
-- `review/05_helpdesk_crm.csv` (siguiente revisión) → luego regenerar `es.po`.
+- `review/*.csv` (si cambian decisiones) → luego regenerar `es.po`.
 ### No tocar
-- `es.po` de apps de terceros; la BD de los sitios (usar comandos soportados).
+- `.po` de apps de terceros; `.mo` compilado; directorios de auditoría/impacto (untracked, fuera del release).
 
 ---
 
 ## Riesgos / cuidados
-- El override depende del orden de instalación (BD), no de `apps.txt`: al instalar otra app después,
-  `buzola_translations` deja de ser la última → correr el verificador y reinstalarla al final.
-- `.mo` en `sites/assets` es artefacto (gitignored); no versionar. Respaldos/one_offs/.artifacts fuera del commit.
+- El SHA256 del `.po` depende del generador (babel) y de la versión en `__init__.py`; regenerar tras cambios.
+- Los CSV usan CRLF; conservar el fin de línea al editarlos para diffs limpios.
 
 ---
 
 ## Información faltante
-- ¿Migrar o conservar nombres visibles de DocType que cambian (444, p. ej. `Payment Entry`)? — pendiente de consulta a clientes.
+- Fecha de merge del PR #3 (decisión del usuario).
+- Alcance/plazo de la etapa futura de Helpdesk y CRM.
