@@ -1,0 +1,5 @@
+{
+  "_comment": "Configuración mínima de extracción del universo de traducción. Añadir una app = agregarla a 'apps' (no se toca la lógica del extractor). 'output_dir' es opcional; por defecto <repo>/.artifacts/freshpot (gitignored).",
+  "apps": ["frappe", "erpnext", "hrms", "helpdesk", "crm"],
+  "output_dir": null
+}

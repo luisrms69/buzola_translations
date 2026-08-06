@@ -1,0 +1,16 @@
+app,source_text,proposed,classification,reason
+frappe,This field is mandatory,Este campo es obligatorio,no_existe_msgid_exacto,no existe como msgid exacto en ninguna app del universo fresco
+frappe,No records found,No se encontraron registros,no_existe_msgid_exacto,no existe como msgid exacto en ninguna app del universo fresco
+frappe,Are you sure you want to delete {0}?,¿Seguro que deseas eliminar {0}?,no_existe_msgid_exacto,no existe como msgid exacto en ninguna app del universo fresco
+frappe,You do not have permission to access this document,No tienes permiso para acceder a este documento,cross_app_pendiente_validacion,"no existe en frappe; el string vive en: crm (decisión filada en la app equivocada; pendiente de validar contexto, NO migrada)"
+erpnext,Entry,Registro,no_existe_msgid_exacto,no existe como msgid exacto en ninguna app del universo fresco
+erpnext,Warehouse,Almacén,cross_app_pendiente_validacion,"no existe en erpnext; el string vive en: frappe (decisión filada en la app equivocada; pendiente de validar contexto, NO migrada)"
+hrms,Shift,Turno,cross_app_pendiente_validacion,"no existe en hrms; el string vive en: erpnext (decisión filada en la app equivocada; pendiente de validar contexto, NO migrada)"
+hrms,Expense Claim,Reembolso de Gastos,cross_app_pendiente_validacion,"no existe en hrms; el string vive en: erpnext (decisión filada en la app equivocada; pendiente de validar contexto, NO migrada)"
+hrms,Payroll Entry,Procesamiento de Nómina,cross_app_pendiente_validacion,"no existe en hrms; el string vive en: erpnext (decisión filada en la app equivocada; pendiente de validar contexto, NO migrada)"
+hrms,Employee,Empleado,cross_app_pendiente_validacion,"no existe en hrms; el string vive en: erpnext (decisión filada en la app equivocada; pendiente de validar contexto, NO migrada)"
+hrms,Holiday List,Calendario de Días Festivos,cross_app_pendiente_validacion,"no existe en hrms; el string vive en: crm;erpnext;helpdesk (decisión filada en la app equivocada; pendiente de validar contexto, NO migrada)"
+hrms,Claim,Solicitud,no_existe_msgid_exacto,no existe como msgid exacto en ninguna app del universo fresco
+hrms,Timesheet,Hoja de Tiempo,cross_app_pendiente_validacion,"no existe en hrms; el string vive en: erpnext (decisión filada en la app equivocada; pendiente de validar contexto, NO migrada)"
+helpdesk,Escalation,Escalamiento,no_existe_msgid_exacto,no existe como msgid exacto en ninguna app del universo fresco
+crm,Expected Close Date,Fecha Estimada de Cierre,no_existe_msgid_exacto,no existe como msgid exacto en ninguna app del universo fresco

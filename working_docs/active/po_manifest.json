@@ -1,0 +1,44 @@
+{
+  "apps": {
+    "erpnext": {
+      "branch": "version-16",
+      "commit": "9d5c760",
+      "version": "16.27.0"
+    },
+    "frappe": {
+      "branch": "version-16",
+      "commit": "4113465",
+      "version": "16.26.3"
+    },
+    "hrms": {
+      "branch": "version-16",
+      "commit": "c703255",
+      "version": "16.12.2"
+    }
+  },
+  "conflictos": 0,
+  "dedups": 8,
+  "elegibles_por_app": {
+    "erpnext": 9996,
+    "frappe": 6183,
+    "hrms": 2246
+  },
+  "estado": "definitivo (auditoría v3 cerrada; reproducible desde review/*.csv)",
+  "exclusiones": {
+    "estado": 171,
+    "helpdesk_crm": 119,
+    "no_app": 0,
+    "sin_proposed": 1
+  },
+  "generation_command": "env/bin/python apps/buzola_translations/scripts/build_po.py",
+  "po_path": "buzola_translations/locale/es.po",
+  "po_sha256": "4294217992df5aaa1778384d84a753020b4f7e07bfbe01d2f897a9ac06dee555",
+  "source_csvs": [
+    "review/01_frappe_plataforma.csv",
+    "review/02_erpnext_operaciones.csv",
+    "review/03_erpnext_contabilidad_finanzas.csv",
+    "review/04_hrms.csv",
+    "review/06_conflictos_historico_especializada.csv"
+  ],
+  "total_entradas_po": 18417
+}

@@ -59,3 +59,6 @@ one_offs/
 # Respaldos locales y temporales de auditoría de traducción — no versionar.
 *.backup-*.json
 *.tmp.csv
+
+# Artefactos de extracción (POT fresco + manifiesto) — reproducibles, no versionar.
+.artifacts/
