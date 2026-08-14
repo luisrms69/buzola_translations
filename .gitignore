@@ -62,3 +62,11 @@ one_offs/
 
 # Artefactos de extracción (POT fresco + manifiesto) — reproducibles, no versionar.
 .artifacts/
+
+# Deltas de mantenimiento (regenerables por diff_upstream.py) — no versionar.
+working_docs/active/*_delta.csv
+working_docs/active/*_delta.json
+
+# Insumos/artefactos pesados de auditoría semántica e impacto — no versionar.
+working_docs/active/semantic_audit/
+working_docs/active/client_translation_impact/

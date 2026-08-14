@@ -49,7 +49,8 @@ def load_apps():
 	"""ÚNICA fuente de la lista de apps: scripts/extract_config.json (la misma que usa el extractor).
 	Añadir una app futura = editar el JSON, nunca la lógica central."""
 	cfg = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
-	apps = list(cfg.get("apps") or [])
+	# Registro único: objetos {app,...} o strings (legado).
+	apps = [a if isinstance(a, str) else a["app"] for a in (cfg.get("apps") or [])]
 	if not apps:
 		sys.exit(f"FATAL: {CONFIG_PATH} no define ninguna app (se requiere al menos una)")
 	dups = sorted({a for a in apps if apps.count(a) > 1})
@@ -65,8 +66,9 @@ BLOCKS = {
 	"02_erpnext_operaciones": "ERPNext: ventas, compras, inventario, manufactura y proyectos",
 	"03_erpnext_contabilidad_finanzas": "ERPNext: contabilidad, finanzas y activos",
 	"04_hrms": "HRMS: RRHH y nómina",
-	"05_helpdesk_crm": "Helpdesk y CRM",
+	"05_helpdesk": "Helpdesk (SPA)",
 	"06_conflictos_historico_especializada": "Conflictos, ambiguos, huérfanas y revisión especializada",
+	"07_crm": "CRM (SPA)",
 }
 ERP_ACCT = {"accounts", "asset", "assets", "regional"}
 AMBIGUOUS = {"Leave", "Return", "Posting", "Issue", "Shift", "Claim", "Entry"}
@@ -590,7 +592,9 @@ def assign_block(app, module, status):
 		return "03_erpnext_contabilidad_finanzas" if module in ERP_ACCT else "02_erpnext_operaciones"
 	if app == "hrms":
 		return "04_hrms"
-	return "05_helpdesk_crm"
+	if app == "crm":
+		return "07_crm"
+	return "05_helpdesk"
 
 
 def is_code_like(s):

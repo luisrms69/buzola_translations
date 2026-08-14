@@ -27,7 +27,6 @@ from babel.messages.pofile import write_po
 
 REPO = Path(__file__).resolve().parent.parent
 BENCH = REPO.parent.parent
-APPS = {"frappe", "erpnext", "hrms"}
 ELIGIBLE = {
 	"existente correcta",
 	"existente mejorable",
@@ -35,19 +34,27 @@ ELIGIBLE = {
 	"igual al inglés válida",
 	"texto no extraíble",
 }
-CSVS = [
-	"01_frappe_plataforma",
-	"02_erpnext_operaciones",
-	"03_erpnext_contabilidad_finanzas",
-	"04_hrms",
-	"06_conflictos_historico_especializada",
-]
 PLACEHOLDER_SPLIT = " || "
 LOCALE = REPO / "buzola_translations" / "locale" / "es.po"
 MANIFEST = REPO / "working_docs" / "active" / "po_manifest.json"
 
 sys.path.insert(0, str(REPO / "scripts"))
-from build_catalog import extract_placeholders
+from build_catalog import BLOCKS, extract_placeholders
+
+
+def _load_registry():
+	"""Registro único (extract_config.json). Devuelve (todas_las_apps, apps_publicadas)."""
+	cfg = json.loads((REPO / "scripts" / "extract_config.json").read_text(encoding="utf-8"))
+	entries = [{"app": a} if isinstance(a, str) else a for a in (cfg.get("apps") or [])]
+	all_apps = {e["app"] for e in entries}
+	published = {e["app"] for e in entries if e.get("published")}
+	return all_apps, published
+
+
+# APPS = apps PUBLICADAS (sus traducciones aprobadas van a locale/es.po); gate explícito por `published`.
+ALL_APPS, APPS = _load_registry()
+# Lee TODOS los bloques del catálogo; el filtro real es `published` (no una lista de bloques fija).
+CSVS = list(BLOCKS)
 
 
 def app_meta(app):
@@ -96,16 +103,16 @@ def main():
 	args = ap.parse_args()
 	rows = load_rows()
 
-	excl = {"no_app": 0, "estado": 0, "sin_proposed": 0, "helpdesk_crm": 0}
+	excl = {"no_app": 0, "no_publicada": 0, "estado": 0, "sin_proposed": 0}
 	per_app = dict.fromkeys(APPS, 0)
 	elig = []
 	for r in rows:
 		app = r["app"]
-		if app in ("helpdesk", "crm"):
-			excl["helpdesk_crm"] += 1
-			continue
-		if app not in APPS:
+		if app not in ALL_APPS:
 			excl["no_app"] += 1
+			continue
+		if app not in APPS:  # app conocida pero con published:false (p. ej. helpdesk/crm) -> no va al .po
+			excl["no_publicada"] += 1
 			continue
 		if r["status"] not in ELIGIBLE:
 			excl["estado"] += 1
