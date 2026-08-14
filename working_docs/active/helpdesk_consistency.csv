@@ -1,0 +1,72 @@
+tipo,confianza,entry_key,msgid,proposed,current,detalle
+confianza_baja,baja,helpdesk:3ac9ba9db2e3d250,Color,Color,Color,propuesta idéntica al inglés sin ser 'igual al inglés válida'
+confianza_baja,baja,helpdesk:6f59deab44ac3b0e,Emoji,Emoji,,propuesta idéntica al inglés sin ser 'igual al inglés válida'
+confianza_baja,baja,helpdesk:0f3ba8fef814cc9e,General,General,General,propuesta idéntica al inglés sin ser 'igual al inglés válida'
+confianza_baja,baja,helpdesk:5f373ec225c677d8,Global,Global,,propuesta idéntica al inglés sin ser 'igual al inglés válida'
+confianza_baja,baja,helpdesk:4a130aa43a6f6148,Logo,Logo,Logo,propuesta idéntica al inglés sin ser 'igual al inglés válida'
+confianza_baja,baja,helpdesk:5211ff247e34c4b1,Personal,Personal,Personal,propuesta idéntica al inglés sin ser 'igual al inglés válida'
+confianza_baja,baja,helpdesk:d2355e06be922b11,Total,Total,Total,propuesta idéntica al inglés sin ser 'igual al inglés válida'
+crossapp_divergente,media,helpdesk:ca33a2e14945a042,Change,Cambiar,Cambio,aprobado cross-app: 'Cambio'
+crossapp_divergente,media,helpdesk:e64a2e16cf01dc21,Custom Range,Rango personalizado,,aprobado cross-app: 'Rango Personalizado'
+crossapp_divergente,media,helpdesk:7375e929e7fb968d,Document Type,Tipo de Documento,Tipo de Documento,aprobado cross-app: 'Tipo de documento'
+crossapp_divergente,media,helpdesk:a351dc244e23900d,First Response Time,Tiempo de Primera Respuesta,Tiempo de primera respuesta,aprobado cross-app: 'Tiempo de primera respuesta'
+crossapp_divergente,media,helpdesk:1315dde560b05754,Hold,En espera,Mantener,aprobado cross-app: 'Retener'
+crossapp_divergente,media,helpdesk:8a28f079a41090b9,Holiday List Name,Nombre de la lista de días festivos,Nombre de festividad,aprobado cross-app: 'Nombre de festividad'
+crossapp_divergente,media,helpdesk:539e1b68ff96892d,Landing Page,Página de Inicio,Página de Inicio,aprobado cross-app: 'Página de inicio'
+crossapp_divergente,media,helpdesk:71e16f54b63ae3e1,Mention,Mención,Mención,aprobado cross-app: 'Mencionar'
+crossapp_divergente,media,helpdesk:be93b8da23ed0165,Period,Período,Período,aprobado cross-app: 'Periodo'
+crossapp_divergente,media,helpdesk:78950159225ad8b6,Primary,Principal,,aprobado cross-app: 'Primario'
+crossapp_divergente,media,helpdesk:11ca4dde9426f528,Resolution Time,Tiempo de resolución,Tiempo de resolucion,aprobado cross-app: 'Tiempo de resolucion'
+crossapp_divergente,media,helpdesk:3e0d494ae050f8bb,Ringing,Sonando,Zumbido,aprobado cross-app: 'Zumbido'
+crossapp_divergente,media,helpdesk:9e976064b8afbae3,Submit,Enviar,Validar,aprobado cross-app: 'Confirmar'
+crossapp_divergente,media,helpdesk:be7d54e05f8211e6,Workflow,Flujo de Trabajo,Flujo de Trabajo,aprobado cross-app: 'Flujo de trabajo'
+falso_amigo,baja,helpdesk:363dc44cdf7ca5ae,Add time targets around support milestones like first reply and resolution times,"Agregue objetivos de tiempo para hitos de soporte, como la primera respuesta y l","Agrega objetivos de tiempo para hitos de soporte, ",posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:c61e4a91501ee70e,Base Support Rotation,Rotación de soporte base,Rotación del soporte de base,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:0bbb3e619ff3cfa3,Connect my support email,Conectar mi correo de soporte,,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:439077fdb8279889,Connect your support email,Conectar el correo de soporte,Conectar el correo de soporte,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:c8138b586051dace,How big is your support team?,¿Qué tamaño tiene su equipo de soporte?,,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:0b7b9753bac79a3a,How do your customers currently contact your support team?,¿Cómo contactan actualmente sus clientes a su equipo de soporte?,,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:cbb36029687f8dfa,How would you like your customers to create support tickets in Frappe Helpdesk?,¿Cómo le gustaría que sus clientes crearan tickets de soporte en Frappe Helpdesk,,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:3a323af064f257d4,"If your issue isn't resolved, raise a support ticket","Si su problema no se resuelve, cree un ticket de soporte",,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:f9b88b6d397b40ed,Invite my support team,Invitar a mi equipo de soporte,,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:860ab3253f304ffd,Rate Your Support Experience,Califique su experiencia de soporte,Califica tu experiencia de soporte,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:16895a6b1a9d213d,Scaling support as we grow,Escalar el soporte a medida que crecemos,,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:2c196751072b46ee,Support,Soporte,Soporte,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:9354c245965fc73e,Support / Sales,Soporte / Ventas,,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:c424b23e3500f118,Support Hour Distribution,Distribución de horas de soporte,Soporte de distribución de horas,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:47b6af0be773f518,Support Policy,Política de Soporte,Política de Soporte,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:3fa45e87531a03a9,Support Team,Equipo de soporte,Equipo de soporte,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:ecd57f324f4cb919,Support portal,Portal de soporte,,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:1195dc96e5cd3b44,Through a support portal,A través de un portal de soporte,,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:55fcf35641440736,What do you currently use to manage customer support?,¿Qué usas actualmente para gestionar el soporte al cliente?,,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:fcd2025bccc4c6ae,What makes support hard right now?,¿Qué dificulta el soporte en este momento?,,posible falso amigo support->'soport'
+falso_amigo,baja,helpdesk:9d4de8958c258795,What's your biggest support challenge today?,¿Cuál es su mayor reto de soporte hoy?,,posible falso amigo support->'soport'
+glosario_desviado,baja,helpdesk:217bacd6b377cdbf,% of tickets created that were resolved within SLA,% de tickets creados que se resolvieron dentro del SLA,% de tickets creados que se resolvieron dentro del,Resolved->raíz 'resuelt' ausente
+glosario_desviado,baja,helpdesk:363dc44cdf7ca5ae,Add time targets around support milestones like first reply and resolution times,"Agregue objetivos de tiempo para hitos de soporte, como la primera respuesta y l","Agrega objetivos de tiempo para hitos de soporte, ",Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:37d9b43e613cba8d,Bulk Reply,Respuesta masiva,,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:812e60178f923e17,Bulk reply sent successfully to 1 ticket.,Respuesta masiva enviada correctamente a 1 ticket.,,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:0afc41a88122dd48,Bulk reply sent successfully to {0} tickets.,Respuesta masiva enviada correctamente a {0} tickets.,,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:6bcea9648d695c49,Duplicate Saved reply,Duplicar respuesta guardada,Duplicar respuesta guardada,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:64857796af0afbf4,HD Saved Reply,Respuesta Predefinida HD,Respuesta guardada HD,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:9af00b6074ec82ab,HD Saved Reply Team,Equipo de Respuesta Predefinida HD,Equipo de respuesta guardada HD,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:5c4d872fe2eecb87,"If enabled, an email is sent to all of the recipients associated with an agent's","Si está habilitado, se envía un correo electrónico a todos los destinatarios aso","Si está habilitado, se envía un correo electrónico",Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:c06ec389c6aff869,"If enabled, an email will be sent to all of the assigned agents after a reply fr","Si está habilitado, se enviará un correo electrónico a todos los agentes asignad","Si está habilitado, se enviará un correo electróni",Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:3a323af064f257d4,"If your issue isn't resolved, raise a support ticket","Si su problema no se resuelve, cree un ticket de soporte",,Resolved->raíz 'resuelt' ausente
+glosario_desviado,baja,helpdesk:7bd82664493d97c5,"Let customers know they're raising a ticket outside working hours, and when they",Informa a los clientes que están creando un ticket fuera del horario laboral y c,Informa a los clientes que están creando un ticket,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:556c174ecf71b530,New Saved Reply,Nueva respuesta guardada,Nueva respuesta guardada,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:189b2815013894d8,New Saved reply Name,Nuevo nombre de respuesta guardada,Nuevo nombre de respuesta guardada,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:736226fd56f04ad9,Open reply box,Abrir cuadro de respuesta,Abrir cuadro de respuesta,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:a5a640abaf191a2b,Reply From Agent,Respuesta del agente,Respuesta del agente,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:6f19185f3cc46f6f,Reply From Contact,Respuesta del contacto,Respuesta del contacto,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:0d61b53a71cb3aa5,Reply from agent,Respuesta del agente,Respuesta del agente,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:968aa2bdfdc1d46d,Reply from contact,Respuesta del contacto,Respuesta del contacto,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:6531b304b8ed3e1c,Saved reply deleted successfully.,Respuesta guardada eliminada con éxito.,,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:020525e056dc4209,Saved reply duplicated successfully.,Respuesta guardada duplicada con éxito.,,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:56192a4dff2ec6c9,Saved reply saved successfully.,Respuesta guardada guardada con éxito.,,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:10b40e9bc8fb1908,Saved reply updated successfully.,Respuesta guardada actualizada con éxito.,,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:390efa5d2d8b8550,Send Reply,Enviar respuesta,,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:d836a69f1a309050,Sent to the user who has raised the ticket after the ticket is closed or resolve,Enviado al usuario que ha generado el ticket después de cerrar o resolver el tic,Enviado al usuario que ha generado el ticket despu,Resolved->raíz 'resuelt' ausente
+glosario_desviado,baja,helpdesk:5394cff9d8657f77,"Simple Python Expression, Example: doc.status == 'Open' and doc.ticket_type == '","Expresión Python simple, Ejemplo: doc.status == 'Open' and doc.ticket_type == 'B","Expresión Python simple, Ejemplo: doc.status == 'A",Status->raíz 'estado' ausente
+glosario_desviado,baja,helpdesk:c7fe5931fa43d695,Some error occurred while renaming saved reply,Ocurrió un error al renombrar la respuesta guardada,,Reply->raíz 'respond' ausente
+glosario_desviado,baja,helpdesk:42549767393173c5,Ticket must be resolved with a feedback,El ticket debe resolverse con comentarios,El ticket debe resolverse con un comentario,Resolved->raíz 'resuelt' ausente
+glosario_desviado,baja,helpdesk:512682a4f1cd1263,Write your reply...,Escriba su respuesta...,,Reply->raíz 'respond' ausente

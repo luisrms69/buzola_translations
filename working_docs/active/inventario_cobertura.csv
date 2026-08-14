@@ -1,7 +1,7 @@
 app,version,branch,commit,pot_entries,po_entries,translated_in_pot,untranslated_in_pot,untranslated_in_po,missing_from_po,po_only_orphan,translated_po_only,equal_to_source_in_pot,context_entries,plural_entries,placeholder_source_entries,current_placeholder_issues,conflict_entries,specialized_review_entries,coverage_pot_percent,coverage_po_percent,universe,review_csv
-frappe,16.26.3,version-16,4113465,6182,5902,5169,1013,630,404,124,103,186,141,0,930,3,2,4,83.6,89.3,6306,01_frappe_plataforma;06_conflictos_historico_especializada
+frappe,16.26.3,version-16,4113465,6188,5902,5169,1019,630,410,124,103,186,144,0,933,3,2,4,83.5,89.3,6312,01_frappe_plataforma;06_conflictos_historico_especializada
 erpnext,16.27.0,version-16,9d5c760,10002,9978,7773,2229,2201,29,5,4,101,11,0,1600,1,3,2,77.7,77.9,10007,02_erpnext_operaciones;03_erpnext_contabilidad_finanzas;06_conflictos_historico_especializada
-hrms,16.12.2,version-16,c703255,2244,2172,813,1431,1351,112,40,8,31,2,0,398,0,1,1,36.2,37.8,2284,04_hrms;06_conflictos_historico_especializada
-helpdesk,1.28.1,main,7b4b400,1426,1315,808,618,432,227,116,75,12,0,0,79,0,1,0,56.7,67.1,1542,05_helpdesk_crm;06_conflictos_historico_especializada
-crm,2.0.0-dev,develop,2752c85,1924,1781,673,1251,1107,144,1,1,30,1,0,144,0,1,0,35.0,37.8,1925,05_helpdesk_crm;06_conflictos_historico_especializada
-TOTAL,,,,21778,21148,15236,6542,5721,916,286,191,360,155,0,3151,4,8,7,70.0,72.9,22064,
+hrms,16.12.2,version-16,c703255,2245,2172,813,1432,1351,113,40,8,31,2,0,399,0,1,1,36.2,37.8,2285,04_hrms;06_conflictos_historico_especializada
+helpdesk,1.28.1,main,7b4b400,1569,1315,811,758,432,353,99,72,12,0,0,108,0,0,0,51.7,67.1,1668,05_helpdesk;06_conflictos_historico_especializada
+crm,2.0.0-dev,develop,2752c85,1950,1781,673,1277,1107,170,1,1,30,1,0,157,0,1,0,34.5,37.8,1951,06_conflictos_historico_especializada;07_crm
+TOTAL,,,,21954,21148,15239,6715,5721,1075,269,188,360,158,0,3197,4,7,7,69.4,72.9,22223,

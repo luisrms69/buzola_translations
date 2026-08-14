@@ -25,13 +25,17 @@ Ejecutar dentro del bench (solo lectura; no escribe en BD):
 
 def run():
 	import hashlib
+	import io
 	import json
 	import os
+	import re
 	import subprocess
 	from pathlib import Path
 
 	import frappe
 	from babel.messages.extract import DEFAULT_KEYWORDS, extract_from_dir
+	from frappe.gettext.extractors.html_template import extract as html_tpl_extract
+	from frappe.gettext.extractors.javascript import extract as js_src_extract
 	from frappe.gettext.translate import (
 		_get_ignored_strings,
 		get_is_gitignored_function_for_app,
@@ -40,7 +44,8 @@ def run():
 
 	repo_root = Path(frappe.get_app_path("buzola_translations")).parent
 	config = json.loads((repo_root / "scripts" / "extract_config.json").read_text(encoding="utf-8"))
-	apps = list(config.get("apps") or [])
+	# Registro único de apps: acepta objetos {app,upstream,branch,published,exceptions} o strings (legado).
+	apps = [a if isinstance(a, str) else a["app"] for a in (config.get("apps") or [])]
 	if not apps:
 		raise SystemExit("FATAL: extract_config.json no define ninguna app")
 	if len(apps) != len(set(apps)):
@@ -68,6 +73,47 @@ def run():
 
 		return ver, g("branch", "--show-current"), g("rev-parse", "--short", "HEAD")
 
+	# --- Wrapper .vue: compone DOS extractores OFICIALES de Frappe (sin regex propio) ---
+	# html_template.extract (comportamiento oficial de .vue) omite backticks y llamadas __() multilínea
+	# del bloque <script>. Los unimos con javascript.extract (el de .js) corrido SOLO sobre cada <script>,
+	# con offset de línea, dedup por (funcname,msgid) para NO duplicar lo que html ya obtuvo, y filtro de
+	# literales con interpolación ${...} (no traducibles estáticamente). Verificado: 0 errores sobre 664
+	# .vue reales (helpdesk/crm/frappe/hrms); recupera texto visible real que el extractor oficial pierde.
+	script_block_re = re.compile(r"<script\b[^>]*>(.*?)</script>", re.DOTALL | re.IGNORECASE)
+
+	def _msgkey(messages):
+		return messages if isinstance(messages, str) else tuple(messages)
+
+	def _has_interp(messages):
+		vals = [messages] if isinstance(messages, str) else list(messages)
+		return any(isinstance(v, str) and "${" in v for v in vals)
+
+	def vue_extract(fileobj, keywords, comment_tags, options):
+		data = fileobj.read()
+		seen = set()
+		for lineno, funcname, messages, comments in html_tpl_extract(
+			io.BytesIO(data), keywords, comment_tags, options
+		):
+			seen.add((funcname, _msgkey(messages)))
+			yield lineno, funcname, messages, comments
+		text = data.decode("utf-8", errors="replace")
+		for mblk in script_block_re.finditer(text):
+			offset = text[: mblk.start(1)].count("\n")
+			try:
+				results = list(
+					js_src_extract(io.BytesIO(mblk.group(1).encode("utf-8")), keywords, comment_tags, options)
+				)
+			except Exception:
+				continue
+			for lineno, funcname, messages, comments in results:
+				if _has_interp(messages):
+					continue
+				key = (funcname, _msgkey(messages))
+				if key in seen:
+					continue
+				seen.add(key)
+				yield lineno + offset, funcname, messages, comments
+
 	def extract(app):
 		app_path = frappe.get_pymodule_path(app, "..")
 		is_gitignored = get_is_gitignored_function_for_app(app)
@@ -78,7 +124,26 @@ def run():
 			base = os.path.basename(dirpath)
 			return not (base.startswith(".") or base.startswith("_"))
 
-		mm = ([] if app == "frappe" else get_method_map(app)) + get_method_map("frappe")
+		# Cobertura SPA: el method_map oficial de Frappe mapea .js/.vue pero NO .ts/.tsx. Los SPA
+		# modernos (helpdesk/crm) escriben __() en TypeScript, invisible al extractor por defecto.
+		# Reutilizamos EXACTAMENTE el mismo extractor JS oficial (el de .js) para .ts/.tsx — verificado
+		# sobre los 67 .ts/.tsx reales de helpdesk (0 errores). Sin regex propio: es el tokenizer JS de
+		# babel que ya usa Frappe. `.vue` se remapea a `vue_extract` (prepend → gana sobre el oficial).
+		ts_methods = [
+			("**.ts", "frappe.gettext.extractors.javascript.extract"),
+			("**.tsx", "frappe.gettext.extractors.javascript.extract"),
+		]
+		# ORDEN CRÍTICO — NO reordenar `ts_methods`: DEBE ir AL FINAL, tras el method_map oficial.
+		# Ponerlo antes de get_method_map("frappe") hace que erpnext (frontend banking/ con .ts/.tsx)
+		# pierda ~358 cadenas de forma determinista (comprobado). `.vue` sí va al frente para ganar sobre
+		# el `**.vue`→html_template oficial. Efecto verificado: erpnext Δ0; frappe/hrms/helpdesk/crm solo
+		# ADICIONES; 0 eliminadas, 0 duplicados, 0 interpolación ${…}.
+		mm = (
+			[("**.vue", vue_extract)]
+			+ ([] if app == "frappe" else get_method_map(app))
+			+ get_method_map("frappe")
+			+ ts_methods
+		)
 		kw = DEFAULT_KEYWORDS.copy()
 		kw["_lt"] = None
 		try:

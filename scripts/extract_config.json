@@ -1,5 +1,41 @@
 {
-  "_comment": "Configuración mínima de extracción del universo de traducción. Añadir una app = agregarla a 'apps' (no se toca la lógica del extractor). 'output_dir' es opcional; por defecto <repo>/.artifacts/freshpot (gitignored).",
-  "apps": ["frappe", "erpnext", "hrms", "helpdesk", "crm"],
+  "_comment": "Registro ÚNICO de apps del catálogo. Cada app es un objeto {app, upstream, branch, published, exceptions}. Lo leen los tres scripts (extract_fresh_pot, build_catalog, build_po). Añadir una app = agregar un objeto aquí (no se toca la lógica). 'published':true = sus traducciones aprobadas se publican en locale/es.po. 'output_dir' es opcional; por defecto <repo>/.artifacts/freshpot (gitignored). Se acepta también el formato legado (lista de strings).",
+  "apps": [
+    {
+      "app": "frappe",
+      "upstream": "https://github.com/frappe/frappe",
+      "branch": "version-16",
+      "published": true,
+      "exceptions": []
+    },
+    {
+      "app": "erpnext",
+      "upstream": "https://github.com/frappe/erpnext",
+      "branch": "version-16",
+      "published": true,
+      "exceptions": []
+    },
+    {
+      "app": "hrms",
+      "upstream": "https://github.com/frappe/hrms",
+      "branch": "version-16",
+      "published": true,
+      "exceptions": []
+    },
+    {
+      "app": "helpdesk",
+      "upstream": "https://github.com/frappe/helpdesk",
+      "branch": "main",
+      "published": true,
+      "exceptions": []
+    },
+    {
+      "app": "crm",
+      "upstream": "https://github.com/frappe/crm",
+      "branch": "develop",
+      "published": false,
+      "exceptions": []
+    }
+  ],
   "output_dir": null
 }
