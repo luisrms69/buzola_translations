@@ -1,36 +1,36 @@
 {
   "crm": {
-    "approved_count": 676,
+    "approved_count": 1961,
     "branch": "develop",
-    "catalog_sha256": "42b32a7316bdce81f3dee6ee21ea56dc9a197bcf602b4ac39102561a50416ca7",
+    "catalog_sha256": "a14647a8fa47ecd3231c473638043e66f90fa48fd586eb3474a31e77bf5aa141",
     "upstream_rev": "2752c85",
     "version": "2.0.0-dev"
   },
   "erpnext": {
     "approved_count": 10005,
     "branch": "version-16",
-    "catalog_sha256": "9933ad2099b22044194b3e550311fec3888498a2b7fab942b63e11346f1a0237",
+    "catalog_sha256": "16e63f12b9ab62f112a117e67319a241da4eba9d86eceb156e8ccbd751080499",
     "upstream_rev": "9d5c760",
     "version": "16.27.0"
   },
   "frappe": {
     "approved_count": 6285,
     "branch": "version-16",
-    "catalog_sha256": "db409e81f0f324d789c1c55904061deb2fc7a7961631a2f0399d741e4180bc58",
+    "catalog_sha256": "cb014ef3ccc9de8c7c288675ffc509b77391b1f6499999e7a65d20cac189faaf",
     "upstream_rev": "4113465",
     "version": "16.26.3"
   },
   "helpdesk": {
-    "approved_count": 884,
+    "approved_count": 1641,
     "branch": "main",
-    "catalog_sha256": "3276827cd6be866b1e97daf178e0d16732bb71204602ddfb9c88ae7e941db713",
+    "catalog_sha256": "33e863adc19330376f8af4026fd70a18cfdadf1725cce7d5a82521c9a53a130f",
     "upstream_rev": "7b4b400",
     "version": "1.28.1"
   },
   "hrms": {
     "approved_count": 2254,
     "branch": "version-16",
-    "catalog_sha256": "7f19143e6e777dc7f56ebf5fb3abf25719d94a2785925a33a4deb8b8ffa24acd",
+    "catalog_sha256": "f17197c1509f14aaed12d1d97ca912539ab91ff7d0b86ed8174c12eff4e81146",
     "upstream_rev": "c703255",
     "version": "16.12.2"
   }

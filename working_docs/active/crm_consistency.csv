@@ -1,0 +1,57 @@
+tipo,confianza,entry_key,msgid,proposed,detalle
+confianza_baja,baja,crm:13baa6b89bedbf8c,"<span class=""h5""><b>PORTAL</b></span>","<span class=""h5""><b>PORTAL</b></span>",propuesta == inglés sin ser igual-al-inglés
+confianza_baja,baja,crm:2e252d59ff60bcae,Color,Color,propuesta == inglés sin ser igual-al-inglés
+confianza_baja,baja,crm:7bb179831f9c9e5b,General,General,propuesta == inglés sin ser igual-al-inglés
+confianza_baja,baja,crm:1513c804ddfdd19c,Lead,Lead,propuesta == inglés sin ser igual-al-inglés
+confianza_baja,baja,crm:bce05bb62c8f16f9,Logo,Logo,propuesta == inglés sin ser igual-al-inglés
+confianza_baja,baja,crm:320f8d76dfe3bdb6,Manual,Manual,propuesta == inglés sin ser igual-al-inglés
+confianza_baja,baja,crm:f708153b416de5a6,Normal,Normal,propuesta == inglés sin ser igual-al-inglés
+confianza_baja,baja,crm:23e464592e61d857,Total,Total,propuesta == inglés sin ser igual-al-inglés
+confianza_baja,baja,crm:c9f485af4daf88e2,{0} no,{0} no,propuesta == inglés sin ser igual-al-inglés
+crossapp_divergente,media,crm:10598e86c5181443,Add a Note,Agregar una nota,aprobado: 'Añadir Nota'
+crossapp_divergente,media,crm:a76db5757f77d7a0,All Day,Todo el Día,aprobado: 'Todo el día'
+crossapp_divergente,media,crm:8960462bf27f549b,Brand Name,Nombre de la marca,aprobado: 'Nombre de la Marca'
+crossapp_divergente,media,crm:6aad5938062806dd,Choose the days of the week when this rule should be active.,Elegir los días de la semana en los que esta regla debe esta,aprobado: 'Elija los días de la semana en los que esta r'
+crossapp_divergente,media,crm:0b0d351ea6531aec,Company Description,Descripción de la empresa,aprobado: 'Descripción de la Empresa'
+crossapp_divergente,media,crm:63b854a4faddfbda,Currency Precision,Precisión de moneda,aprobado: 'Precisión de monedas'
+crossapp_divergente,media,crm:bbe7dd75c6bab468,Current Password,Contraseña actual,aprobado: 'Contraseña Actual'
+crossapp_divergente,media,crm:6763440019785e6f,Discount Amount,Importe de descuento,aprobado: 'Importe de Descuento'
+crossapp_divergente,media,crm:7ff7089de6dbfb6c,Email Account,Cuenta de correo electrónico,aprobado: 'Cuentas de correo electrónico'
+crossapp_divergente,media,crm:7c7e35df45d42fee,From,Desde,aprobado: 'De'
+crossapp_divergente,media,crm:1513c804ddfdd19c,Lead,Lead,aprobado: 'Prospecto'
+crossapp_divergente,media,crm:a3bba99ed02cafa7,Lead Owner cannot be same as the Lead Email Address,El Responsable del Lead no puede ser el mismo que la direcci,aprobado: 'El responsable del Lead no puede ser el mismo'
+crossapp_divergente,media,crm:699548af9a8150ca,Leads,Leads,aprobado: 'Prospectos'
+crossapp_divergente,media,crm:aef327d604187bed,Medium,Medio,aprobado: 'Media'
+crossapp_divergente,media,crm:44286148a5fe8d7f,New Event,Nuevo Evento,aprobado: 'Nuevo evento'
+crossapp_divergente,media,crm:52599b67984ead44,Quick Filters,Filtros rápidos,aprobado: 'Filtros Rápidos'
+crossapp_divergente,media,crm:cd705415dc1edeb1,Read,Leído,aprobado: 'Leer'
+crossapp_divergente,media,crm:167130fb79b9e00d,Select View,Seleccione la vista,aprobado: 'Seleccione Vista'
+crossapp_divergente,media,crm:8bdf37297e08705c,The holiday on {0} is not between From Date and To Date,El día festivo del {0} no está entre la fecha inicial y la f,aprobado: 'El día de fiesta en {0} no es entre De la fec'
+crossapp_divergente,media,crm:e9d3b3cbf45fd033,To,A,aprobado: 'Para'
+crossapp_divergente,media,crm:5e6a2a56ff7a6044,To User,Al usuario,aprobado: 'Para el Usuario'
+crossapp_divergente,media,crm:c6f257afc3b89c70,Upload Image,Cargar Imagen,aprobado: 'Cargar imagen'
+crossapp_divergente,media,crm:b5acaa80f19393f4,Your assignment on {0} {1} has been removed by {2},Su tarea de {0} {1} ha sido eliminada por {2},aprobado: 'Tu tarea de {0} {1} ha sido eliminada por {2}'
+crossapp_divergente,media,crm:8eda82c02f68ba09,description,description,aprobado: 'descripción'
+glosario_desviado,baja,crm:39896fb835bb0661,Add Assignee,Agregar asignado,Assignee->'responsab' ausente
+glosario_desviado,baja,crm:4c9ed21ac97d576f,Assignee Rules,Reglas de asignación,Assignee->'responsab' ausente
+glosario_desviado,baja,crm:e7514888ee090c2e,"Simple Python Expression, Example: doc.status == 'Open' and ","Expresión de Python simple, ejemplo: doc.status == 'Open' an",Status->'estado' ausente
+glosario_desviado,baja,crm:5cf2f93532db4f0f,"Since you added a new assignee, the {0} has been set to {1}.","Como agregaste un nuevo asignado, {0} se estableció en {1}.",Assignee->'responsab' ausente
+glosario_desviado,baja,crm:c21c38f05e4c6af8,"Since you removed {0} from the assignee, the {0} has also be","Como quitaste a {0} de los asignados, también se eliminó {0}",Assignee->'responsab' ausente
+glosario_desviado,baja,crm:7660a05281d89a61,"Since you removed {0} from the assignee, the {0} has been ch","Como quitaste a {0} de los asignados, {0} se cambió al sigui",Assignee->'responsab' ausente
+protegido_violado,alta,crm:dfdb48c9c591ddab,A lead sync source is already enabled for this Facebook Lead,¡Ya hay una fuente de sincronización de Leads habilitada par,Lead no preservado
+protegido_violado,alta,crm:11add8582308e88d,"Add, edit, and manage sources for automatic lead syncing to ","Agregue, edite y gestione fuentes para la sincronización aut",Lead no preservado
+protegido_violado,alta,crm:e42a0b61236cf67c,Any failed lead syncs will show up here,Cualquier sincronización fallida de Leads se mostrará aquí,Lead no preservado
+protegido_violado,alta,crm:9d90f0a1ce2de4b7,Average deal value of non won/lost deals,Valor promedio de Deals que no están ganados ni perdidos,Deal no preservado
+protegido_violado,alta,crm:93f1ae4a90aa641e,Average deal value of ongoing & won deals,Valor promedio de Deals en curso y ganados,Deal no preservado
+protegido_violado,alta,crm:f3f858705f5ab1cb,Average deal value of won deals,Valor promedio de Deals ganados,Deal no preservado
+protegido_violado,alta,crm:8ef7a7c24a683eba,"Configure how your dashboard calculates, formats, and displa","Configure cómo su tablero calcula, formatea y muestra las mé",Deal no preservado
+protegido_violado,alta,crm:b1550f0cc2e87997,Deal generation channel analysis,Análisis de canales de generación de Deals,Deal no preservado
+protegido_violado,alta,crm:ac7286eae0fe5bbf,Lead Syncing,Sincronización de Leads,Lead no preservado
+protegido_violado,alta,crm:14901118a6d80b45,Lead and deal visibility will no longer be restricted by the,La visibilidad de leads y deals ya no estará restringida por,Lead no preservado
+protegido_violado,alta,crm:33752124e33af276,Lead generation channel analysis,Análisis de canales de generación de Leads,Lead no preservado
+protegido_violado,alta,crm:be61baf79d463759,Lead sync initiated.,Sincronización de Leads iniciada.,Lead no preservado
+protegido_violado,alta,crm:5b55bb8d9affd508,Lost Deal Reasons,Razones de Deals perdidos,Deal no preservado
+protegido_violado,alta,crm:6e0525229bc4bc7d,Lost deal reasons,Razones de Deals perdidos,Deal no preservado
+protegido_violado,alta,crm:bf161a56d101aef2,Please select a lead gen form before syncing!,¡Seleccione un formulario de captación de leads antes de sin,Lead no preservado
+protegido_violado,alta,crm:2f56d98eb2042a64,Restrict Lead and Deal visibility based on the Sales Hierarc,Restringir la visibilidad de Leads y Deals según el árbol de,Lead no preservado
+registro_tu,baja,crm:f30441388a439a82,The fieldname on the target doctype to write the value to.,El nombre de campo del DocType destino en el que se escribe ,posible tuteo

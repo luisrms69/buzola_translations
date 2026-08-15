@@ -73,13 +73,15 @@ def run():
 
 		return ver, g("branch", "--show-current"), g("rev-parse", "--short", "HEAD")
 
-	# --- Wrapper .vue: compone DOS extractores OFICIALES de Frappe (sin regex propio) ---
-	# html_template.extract (comportamiento oficial de .vue) omite backticks y llamadas __() multilínea
-	# del bloque <script>. Los unimos con javascript.extract (el de .js) corrido SOLO sobre cada <script>,
-	# con offset de línea, dedup por (funcname,msgid) para NO duplicar lo que html ya obtuvo, y filtro de
-	# literales con interpolación ${...} (no traducibles estáticamente). Verificado: 0 errores sobre 664
-	# .vue reales (helpdesk/crm/frappe/hrms); recupera texto visible real que el extractor oficial pierde.
+	# --- Wrapper .vue: compone TRES extractores OFICIALES de Frappe (sin regex propio) ---
+	# html_template.extract (comportamiento oficial de .vue) omite: (a) backticks y llamadas __()
+	# multilínea del bloque <script>, y (b) llamadas __() multilínea dentro de expresiones {{ ... }}
+	# del <template>. Se unen con javascript.extract (el de .js) corrido: (1) sobre cada <script> y
+	# (2) sobre cada expresión {{ ... }} del template que contenga __(. Todo con offset de línea, dedup
+	# por (funcname,msgid) para NO duplicar lo que html ya obtuvo, y filtro de literales con interpolación
+	# ${...} (no traducibles estáticamente). Verificado: 0 errores; solo ADICIONES de texto visible real.
 	script_block_re = re.compile(r"<script\b[^>]*>(.*?)</script>", re.DOTALL | re.IGNORECASE)
+	mustache_re = re.compile(r"\{\{(.*?)\}\}", re.DOTALL)
 
 	def _msgkey(messages):
 		return messages if isinstance(messages, str) else tuple(messages)
@@ -102,6 +104,26 @@ def run():
 			try:
 				results = list(
 					js_src_extract(io.BytesIO(mblk.group(1).encode("utf-8")), keywords, comment_tags, options)
+				)
+			except Exception:
+				continue
+			for lineno, funcname, messages, comments in results:
+				if _has_interp(messages):
+					continue
+				key = (funcname, _msgkey(messages))
+				if key in seen:
+					continue
+				seen.add(key)
+				yield lineno + offset, funcname, messages, comments
+		# 3) expresiones {{ ... }} del <template> que contienen __() (multilínea que html_template omite).
+		for mmus in mustache_re.finditer(text):
+			expr = mmus.group(1)
+			if "__(" not in expr:
+				continue
+			offset = text[: mmus.start(1)].count("\n")
+			try:
+				results = list(
+					js_src_extract(io.BytesIO(expr.encode("utf-8")), keywords, comment_tags, options)
 				)
 			except Exception:
 				continue

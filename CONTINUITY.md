@@ -1,75 +1,52 @@
 # CONTINUITY.md — buzola_translations
 
 **Fecha:** 2026-08-14
-**Rama activa:** `feat/etapa3-helpdesk-incremental` (rama de trabajo; `version-16` es la protegida)
-**Tarea actual:** Etapa 3 — **Helpdesk publicado técnicamente en v0.2.0** (local, sin push/PR). `helpdesk`
-con `published:true`; `es.po` regenerado (**19 605 entradas**, sha `da19befa…`, 0 conflictos, idempotente);
-`.mo` compilado; precedencia validada (`buzola_translations` al final de `installed_apps`). **`/ship commit`
-ejecutado en esta rama; pendiente `/ship push` y `/ship pr` a `version-16` (aún sin autorizar).**
+**Rama activa:** `feat/etapa4-crm` (rama de trabajo; `version-16` es la protegida)
+**Tarea actual:** Etapa 4 — **CRM publicado técnicamente en v0.3.0** (local, sin push/PR). `crm` con
+`published:true`; `es.po` = **20 879 entradas** (sha `099a9a8a…`), 0 conflictos, idempotente; `.mo`
+compilado; precedencia validada. **`/ship commit` de v0.3.0 autorizado; pendiente `/ship push` y `/ship pr`
+(autorizaciones separadas).**
 
 ---
 
 ## Recuperación rápida
 
-**Etapa 2 (cerrada, mergeada):** catálogo español auditado de Frappe/ERPNext/HRMS, **v0.1.0**,
-`locale/es.po` = 18 417 entradas. PR #3 mergeado → `f997df1` en `version-16`.
+Catálogo español (México) que se superpone a Frappe/ERPNext/HRMS/Helpdesk/CRM vía `locale/es.po`.
+Publicado: **v0.1.0** (Frappe/ERPNext/HRMS, PR #3), **v0.2.0** (Helpdesk, PR #4, tag+Release), **v0.3.0**
+(CRM — en esta rama, técnicamente publicado, sin `/ship` aún).
 
-**Etapa 3 (en curso, esta rama):**
-1. **Extractor común mejorado** (`extract_fresh_pot.py`): cobertura SPA `.ts/.tsx` + wrapper `.vue`
-   (composición de extractores oficiales, sin regex propio; orden del `method_map` es crítico — ver
-   comentario en el código: `.ts/.tsx` al final).
-2. **Registro único** `extract_config.json` (objetos con `published`); `build_po.py` publica solo apps
-   `published:true`; bloques por app (`05_helpdesk`, `07_crm`).
-3. **Mantenimiento incremental** (`diff_upstream.py` + `catalog_baseline.json`): probado; futuras
-   actualizaciones revisan solo el delta.
-4. **Baseline lingüístico de Helpdesk: revisión inicial completa + auditoría de consistencia — APROBADO.**
+**Sistema (cerrado, ver ADR-0001 + PLAN_etapa3):** extractor común SPA (`.ts/.tsx` + wrapper `.vue` que
+compone html_template ∪ js(`<script>`) ∪ js(`{{ }}`)); `extract_config.json` registro único con `published`;
+`build_po.py` publica solo `published:true`; mantenimiento incremental `diff_upstream.py` + `catalog_baseline.json`;
+revisión por bloques (subagentes olas ≤5) + auditoría de consistencia + resolución de conflictos Gettext.
 
 ---
 
-## Baseline Helpdesk — cerrado (esta rama, sin publicar)
-
-- **Universo:** `review/05_helpdesk.csv` = **1 569 filas**, 100 % `human_authored=sí` (revisado íntegro).
-- **Distribución final:** `traducción propuesta` 708 · `existente correcta` 620 · `existente mejorable`
-  181 · `igual al inglés válida` 60.
-- **Terminología protegida:** `Ticket`/`Tickets` y `SLA`/`SLAs` en inglés (0 violaciones; se revirtieron
-  25 casos `ANS`→`SLA` del upstream). `Feedback`→Comentarios; `Service Level Agreement`→"Acuerdo de Nivel
-  de Servicio" (sigla SLA en inglés). Nombres DocType `HD …`: etiqueta traducida + sufijo "HD".
-- **Registro:** normalizado al estándar del ecosistema (~97 % impersonal/usted; era 50/50 en la revisión
-  inicial). Pase dirigido de 81 filas de registro + 37 `HD …` + 2 términos.
-- **Consistencia final (auditoría re-ejecutada):** 71 alertas → 0 protegidos violados; **14
-  `crossapp_divergente` = 7 divergencias legítimas de Helpdesk** (Submit→Enviar, Hold→En espera,
-  Primary→Principal, Ringing→Sonando, Change→Cambiar, Mention→Mención, Holiday List→días festivos) **+ 7
-  solo mayúsculas** (se conservan); el resto (glosario_desviado/falso_amigo) son falsos positivos.
-- **Validaciones:** 0 pérdida de placeholders · identidad `entry_key` sin colisiones · **2ª regeneración
-  byte-idéntica (idempotente)** · Frappe/ERPNext/HRMS/CRM **IGUAL desde Fase 0** (0 cambios humanos
-  accidentales; único aditivo autorizado: frappe +6, hrms +1 `sin traducción`, backlog).
-- **Estado:** **lingüísticamente aprobado, NO publicado** (sigue `published:false`).
-
-Artefactos del baseline (en `one_offs/hd/`, gitignored): `glossary_hd.json`, `INSTRUCTIONS_HD.md`,
-`hd_part01..09.jsonl` + `_results`, `hd_fix*`, `checkpoint.json`. Tabla de consistencia:
-`working_docs/active/helpdesk_consistency.csv`.
+## CRM v0.3.0 — cerrado (esta rama, sin push)
+- **Universo:** `review/07_crm.csv` = 1 960 filas 100% revisadas + 3 en bloque 06. Sin deriva upstream (`2752c85`).
+- **Protegidos:** `Lead/Deal/Pipeline` inglés (0 violaciones); `Lost→Perdido`, `Won→Ganado`; nombres DocType
+  `CRM …` traducidos (etiqueta + prefijo).
+- **Extractor `{{ }}`:** ampliación del wrapper `.vue`; auditoría 5 apps = **0 literales estáticos omitidos**.
+  Backlog aditivo `sin traducción`: helpdesk +2, hrms +1.
+- **Publicación:** `es.po` **20 879** (v0.3.0). Diff vs v0.2.0 = **+1 274 CRM, 0 eliminadas, 16 convergencias**
+  deliberadas en apps publicadas (Lead/Leads, Add a Note, To/To User, mayúsculas, etc.). **Compromisos
+  globales conocidos:** `Medium→Media`, `Read→Leer` (clave sin contexto, menor daño global).
+- **Validaciones:** 0 conflictos, 0 pérdida placeholders, idempotente, precedencia OK, `.mo` compilado.
 
 ---
 
-## Pendiente (requiere autorización explícita, por paso)
-1. **Publicación Helpdesk:** `published:true` → `build_po.py` regenera `es.po` → `bench compile-po-to-mo`
-   → validar precedencia (`check_translation_order`) → `/ship` (commit → push → PR a `version-16`).
-2. **CRM:** mismo procedimiento (universo 1 949; +26 `.vue`; sin gap `.ts`).
-3. **Backlog frappe (+6) / hrms (+1):** folding en su próximo ciclo.
+## Pendiente (autorización explícita por paso)
+1. **v0.3.0:** `/ship commit` (autorizado) → `/ship push` → `/ship pr` a `version-16` → merge (usuario) →
+   `/ship release` (tag+Release `v0.3.0`).
+2. Próximas apps: mismo procedimiento estándar.
 
 ## No repetir / cuidados
-- **NO reordenar `ts_methods`** en `extract_fresh_pot.py` (debe ir al final; antes rompe erpnext −358).
-- La regeneración de `build_catalog` normaliza `status` (correcta↔mejorable) para hacerlo coherente con
-  `current`/`proposed`; **no cambia traducciones** y `es.po` no se afecta (ambos elegibles).
-- No versionar `.mo` ni `working_docs/active/semantic_audit/` ni `client_translation_impact/`.
-- El `.po` se **genera** desde los CSV; no se edita a mano.
+- **NO reordenar `ts_methods`** en `extract_fresh_pot.py` (van al final; antes rompe erpnext −358).
+- `es.po` se **genera** desde los CSV; no se edita a mano. `.mo` no se versiona.
+- Al publicar, `build_po` HALTA ante conflictos Gettext (claves sin contexto compartidas) → resolver con
+  convergencia global documentada (patrón Helpdesk/CRM).
 
-## Archivos relevantes ahora
-- `working_docs/active/PLAN_etapa3.md`, `PLAN_helpdesk_review.md` (procedimiento y cierre).
-- `working_docs/active/helpdesk_consistency.csv`, `catalog_baseline.json`, `inventario_cobertura.csv`.
-- `scripts/`: `extract_fresh_pot.py`, `diff_upstream.py` (+test), `build_catalog.py`, `build_po.py`,
-  `extract_config.json`.
-
-## Información faltante
-- Fecha/autorización de la fase de publicación de Helpdesk.
-- Alcance/plazo de la revisión de CRM.
+## Archivos relevantes
+- `working_docs/active/PLAN_etapa3.md`, `PLAN_helpdesk_review.md`, `PLAN_crm_review.md`.
+- `working_docs/active/crm_consistency.csv`, `helpdesk_consistency.csv`, `catalog_baseline.json`, `po_manifest.json`.
+- `scripts/`: `extract_fresh_pot.py`, `diff_upstream.py` (+test), `build_catalog.py`, `build_po.py`, `extract_config.json`.

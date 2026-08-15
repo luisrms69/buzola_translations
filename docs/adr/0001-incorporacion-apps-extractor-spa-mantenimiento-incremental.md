@@ -22,10 +22,13 @@ oficiales de gettext y consolida un `locale/es.po` reproducible desde `review/*.
    - `.ts`/`.tsx` → `frappe.gettext.extractors.javascript.extract` (el mismo de `.js`). **Orden crítico:**
      estos patrones van **al final** del `method_map`; anteponerlos rompe la extracción de erpnext
      (`banking/`, `.tsx`).
-   - `.vue` → wrapper que **compone** `html_template.extract` ∪ `javascript.extract` sobre cada bloque
-     `<script>`, con offset de línea, dedup por `(funcname,msgid)` y filtro de literales con interpolación
-     `${…}` (no traducibles estáticamente). Recupera backticks y llamadas `__()` multilínea que el
-     extractor oficial de `.vue` omite.
+   - `.vue` → wrapper que **compone** los extractores oficiales de Frappe: `html_template.extract` ∪
+     `javascript.extract` sobre cada bloque `<script>` **∪ `javascript.extract` sobre cada expresión
+     `{{ … }}` del `<template>`** (ampliación v0.3.0). Todo con offset de línea, dedup por `(funcname,msgid)`
+     y filtro de literales con interpolación `${…}` (no traducibles estáticamente). Recupera backticks y
+     llamadas `__()` multilínea tanto del `<script>` como del `<template>`, que el extractor oficial de
+     `.vue` omite. Auditoría de cobertura (5 apps): 0 literales estáticos `__()` omitidos en archivos en
+     alcance; residual = solo dinámicos (`${…}`/variable) y archivos fuera del alcance oficial (tests/build).
 
 2. **Registro único de apps** en `scripts/extract_config.json`: objetos
    `{app, upstream, branch, published, exceptions}`, leídos por los tres scripts. Incorporar una app =

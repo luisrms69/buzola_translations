@@ -4,6 +4,30 @@ Todas las versiones notables de `buzola_translations`.
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/);
 versionado [SemVer](https://semver.org/lang/es/).
 
+## [0.3.0] - 2026-08-14
+
+Incorporación de **Frappe CRM** al catálogo y cierre de cobertura del extractor SPA.
+
+### Added
+- **CRM** incorporado al catálogo: baseline lingüístico completo (**1 960 filas** revisadas), **+1 274
+  entradas netas** en `locale/es.po` (total **20 879**). `Lead`/`Leads`, `Deal`/`Deals`, `Pipeline`/`Pipelines`
+  se conservan en inglés (términos de industria); `Lost→Perdido`, `Won→Ganado`; nombres DocType `CRM …` con
+  etiqueta traducida + prefijo (`CRM Lead→Lead de CRM`). 688 términos cross-app reutilizados.
+- **Extractor `.vue` — cobertura de `{{ … }}`:** el wrapper ahora corre además `javascript.extract` sobre
+  las expresiones `{{ … }}` del `<template>`, recuperando llamadas `__()` multilínea que quedaban fuera
+  (ADR-0001). Auditoría de cobertura de las 5 apps: **0 literales estáticos omitidos** en archivos en alcance.
+- `crm_consistency.csv` (evidencia de la auditoría de consistencia de CRM).
+
+### Changed
+- **16 convergencias globales Gettext** en apps ya publicadas (claves sin contexto compartidas): `Lead/Leads`
+  (ERPNext `Prospecto`→`Lead`), `Add a Note`, `Company Description`, `Currency Precision`, `Email Account`,
+  `To`/`To User`, `Select View`, `The holiday…`, `Your assignment…` (impersonal), y normalizaciones de
+  mayúsculas (`Brand Name`, `Discount Amount`, `Current Password`, `Quick Filters`). Documentadas como
+  correcciones deliberadas.
+- **Compromisos globales conocidos** (clave sin contexto, sin traducción única perfecta): `Medium→Media`
+  (prioridad domina sobre canal), `Read→Leer` (permiso domina sobre estado de notificación).
+- Backlog aditivo `sin traducción` en apps publicadas por el fix `{{ }}`: helpdesk +2, hrms +1.
+
 ## [0.2.0] - 2026-08-14
 
 Incorporación de **Frappe Helpdesk** al catálogo y arquitectura de soporte multi-app.
