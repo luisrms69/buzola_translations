@@ -33,7 +33,7 @@
       "app": "crm",
       "upstream": "https://github.com/frappe/crm",
       "branch": "develop",
-      "published": false,
+      "published": true,
       "exceptions": []
     }
   ],

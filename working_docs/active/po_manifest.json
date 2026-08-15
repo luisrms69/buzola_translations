@@ -1,5 +1,10 @@
 {
   "apps": {
+    "crm": {
+      "branch": "develop",
+      "commit": "2752c85",
+      "version": "2.0.0-dev"
+    },
     "erpnext": {
       "branch": "version-16",
       "commit": "9d5c760",
@@ -22,20 +27,21 @@
     }
   },
   "conflictos": 0,
-  "dedups": 389,
+  "dedups": 1074,
   "elegibles_por_app": {
+    "crm": 1959,
     "erpnext": 9996,
     "frappe": 6183,
     "helpdesk": 1569,
     "hrms": 2246
   },
   "exclusiones": {
-    "estado": 277,
+    "estado": 283,
     "no_app": 0,
-    "no_publicada": 1951,
-    "sin_proposed": 1
+    "no_publicada": 0,
+    "sin_proposed": 2
   },
   "po_path": "buzola_translations/locale/es.po",
-  "po_sha256": "da19befa77a1c4504b77b692763b1473bcbb63bddcd4b552cc335be02262916c",
-  "total_entradas_po": 19605
+  "po_sha256": "099a9a8aea31981bf0f32d627d4669df8a0c50b7b55dfbad2a2dc0b1fdb1096c",
+  "total_entradas_po": 20879
 }
