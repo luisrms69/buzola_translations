@@ -1,0 +1,125 @@
+class,decision,ctx,msgid_old,tr_old,msgid_new,proposed_translation,similarity,placeholders,needs_human
+nueva,traducir nueva,,,,"<p>Dear {{ lead_name }},</p>
+
+<p>This is a reminder for the payment of {{ grand_total }}.</p>
+
+<p>Thanks,</p>
+<p>Frappé</p>","<p>Estimado(a) {{ lead_name }},</p>
+
+<p>Este es un recordatorio para el pago de {{ grand_total }}.</p>
+
+<p>Gracias,</p>
+<p>Frappé</p>",,{{ grand_total };{{ lead_name },resuelto (revisado con usuario)
+nueva,traducir nueva,,,,Automatically sets communication status to “Open” for the lead or deal when a new communication is created. Applies only when SLA is enabled,Establece automáticamente el estado de comunicación en “Open” para el lead o deal cuando se crea una nueva comunicación. Aplica solo cuando el SLA está habilitado,,,resuelto (revisado con usuario)
+nueva,traducir nueva,,,,Automatically sets communication status to “Replied” for the lead or deal when a response is received. Applies only when SLA is enabled,Establece automáticamente el estado de comunicación en “Replied” para el lead o deal cuando se recibe una respuesta. Aplica solo cuando el SLA está habilitado,,,resuelto (revisado con usuario)
+nueva,traducir nueva,,,,Bidirectional Product Sync,Sincronización bidireccional de productos,,,
+nueva,traducir nueva,,,,"Could not save, try again","No se pudo guardar, inténtelo de nuevo",,,
+nueva,traducir nueva,,,,Current icon,Icono actual,,,
+nueva,traducir nueva,,,,"Dear {{ lead_name }}, 
+
+This is a reminder for the payment of {{ grand_total }}. 
+
+Thanks, 
+Frappé","Estimado(a) {{ lead_name }}, 
+
+Este es un recordatorio para el pago de {{ grand_total }}. 
+
+Gracias, 
+Frappé",,{{ grand_total };{{ lead_name },resuelto (revisado con usuario)
+nueva,traducir nueva,,,,"Document ID, not the full name","ID del documento, no el nombre completo",,,
+nueva,traducir nueva,,,,Edit deal's mandatory fields layout,Editar el diseño de campos obligatorios del deal,,,
+nueva,traducir nueva,,,,Email address added,Dirección de correo agregada,,,
+nueva,traducir nueva,,,,Email address removed,Dirección de correo eliminada,,,
+nueva,traducir nueva,,,,Email address updated,Dirección de correo actualizada,,,
+nueva,traducir nueva,,,,ERPNext Items always sync into CRM Products. Turn this on to also sync CRM Product changes back to ERPNext Items.,Los artículos de ERPNext siempre se sincronizan con los productos del CRM. Active esto para sincronizar también los cambios de productos del CRM de vuelta a los artículos de ERPNext.,,,
+nueva,traducir nueva,,,,"Hi John, 
+
+Can you please provide more details on this...","Hola John, 
+
+¿Podría darme más detalles sobre esto...",,,resuelto (revisado con usuario)
+nueva,traducir nueva,,,,Invalid recording URL,URL de grabación no válida,,,
+nueva,traducir nueva,,,,item,artículo,,,resuelto (revisado con usuario)
+nueva,traducir nueva,,,,Item Group,Grupo de artículos,,,
+nueva,traducir nueva,,,,items,artículos,,,
+nueva,traducir nueva,,,,Manual Sync,Sincronización manual,,,
+nueva,traducir nueva,,,,Mobile number added,Número de móvil agregado,,,
+nueva,traducir nueva,,,,Mobile number removed,Número de móvil eliminado,,,
+nueva,traducir nueva,,,,Mobile number updated,Número de móvil actualizado,,,
+nueva,traducir nueva,,,,Personal Mobile Number,Número de móvil personal,,,
+nueva,traducir nueva,,,,Please enter a valid email address,Ingrese una dirección de correo válida,,,
+nueva,traducir nueva,,,,Please enter a valid phone number,Ingrese un número de teléfono válido,,,
+nueva,traducir nueva,,,,Primary email address updated,Dirección de correo principal actualizada,,,
+nueva,traducir nueva,,,,Primary mobile number updated,Número de móvil principal actualizado,,,
+nueva,traducir nueva,,,,product,producto,,,
+nueva,traducir nueva,,,,Product sync started.,Sincronización de productos iniciada.,,,
+nueva,traducir nueva,,,,products,productos,,,
+nueva,traducir nueva,,,,Recording not available,Grabación no disponible,,,
+nueva,traducir nueva,,,,Recording URL is not allowed,La URL de grabación no está permitida,,,
+nueva,traducir nueva,,,,Replace with an icon...,Reemplazar con un icono...,,,
+nueva,traducir nueva,,,,Run a manual bi-directional sync between ERPNext Items and CRM Products.,Ejecute una sincronización bidireccional manual entre los artículos de ERPNext y los productos del CRM.,,,
+nueva,traducir nueva,,,,Run a manual synchronization to pull the latest Items from ERPNext.,Ejecute una sincronización manual para traer los artículos más recientes de ERPNext.,,,
+nueva,traducir nueva,,,,Select an icon...,Seleccione un icono...,,,
+nueva,traducir nueva,,,,Select Country to see state options,Seleccione un país para ver las opciones de estado,,,resuelto (revisado con usuario)
+nueva,traducir nueva,,,,Too many redirects while fetching recording,Demasiadas redirecciones al obtener la grabación,,,
+nueva,traducir nueva,,,,Type an email address to invite,Escriba una dirección de correo para invitar,,,
+nueva,traducir nueva,,,,{0} not yet synced,{0} aún no sincronizado,,{0},
+rename,reusar,,Sync Successful!,¡Sincronización exitosa!,Sync successful!,¡Sincronización exitosa!,1.0,,
+rename,reusar,,Please enter the {0} Access Key.,Ingrese la clave de acceso de {0}.,Please enter the {0} access key.,Ingrese la clave de acceso de {0}.,1.0,{0},
+rename,reusar,,Template Deleted Successfully,Plantilla eliminada correctamente,Template deleted successfully,Plantilla eliminada correctamente,1.0,,
+rename,reusar,,Error Syncing Lead,Error al sincronizar el Lead,Error syncing lead,Error al sincronizar el Lead,1.0,,
+rename,reusar,,Configure your Exotel Telephony Integration Settings here,Configure aquí los ajustes de integración de telefonía de Exotel,Configure your Exotel telephony integration settings here,Configure aquí los ajustes de integración de telefonía de Exotel,1.0,,
+rename,reusar,,Priority {0}: Priority Name is required,Prioridad {0}: el nombre de la prioridad es obligatorio,Priority {0}: priority name is required,Prioridad {0}: el nombre de la prioridad es obligatorio,1.0,{0},
+rename,reusar,,Profile Updated Successfully,Perfil actualizado correctamente,Profile updated successfully,Perfil actualizado correctamente,1.0,,
+rename,reusar,,Assignment Rule Created,Regla de asignación creada,Assignment rule created,Regla de asignación creada,1.0,,
+rename,reusar,,Select a Twilio App for your CRM,Seleccione una app de Twilio para su CRM,Select a Twilio app for your CRM,Seleccione una app de Twilio para su CRM,1.0,,
+rename,reusar,,Sales Hierarchy disabled,Jerarquía de ventas deshabilitada,Sales hierarchy disabled,Jerarquía de ventas deshabilitada,1.0,,
+rename,reusar,,Access Key for {0}. Required for fetching exchange rates.,Clave de acceso para {0}. Necesaria para obtener los tipos de cambio.,Access key for {0}. Required for fetching exchange rates.,Clave de acceso para {0}. Necesaria para obtener los tipos de cambio.,1.0,{0},
+rename,reusar,,Assignment Rule {0} Updated,Regla de asignación {0} actualizada,Assignment rule {0} updated,Regla de asignación {0} actualizada,1.0,{0},
+rename,reusar,,Email Account created successfully,Cuenta de correo creada correctamente,Email account created successfully,Cuenta de correo creada correctamente,1.0,,
+rename,reusar,,"I understand, Add Conditions","Entiendo, agregar condiciones","I understand, add conditions","Entiendo, agregar condiciones",1.0,,
+rename,reusar,,Some error occurred while creating SLA Policy,Ocurrió un error al crear la política de SLA,Some error occurred while creating SLA policy,Ocurrió un error al crear la política de SLA,1.0,,
+rename,reusar,,Assignment Rule Updated,Regla de asignación actualizada,Assignment rule updated,Regla de asignación actualizada,1.0,,
+rename,reusar,,Assign Condition is required,La condición de asignación es obligatoria,Assign condition is required,La condición de asignación es obligatoria,1.0,,
+rename,reusar,,Invalid Site URL,URL del sitio no válida,Invalid site URL,URL del sitio no válida,1.0,,
+rename,reusar,,End Time is required,La hora de finalización es obligatoria,End time is required,La hora de finalización es obligatoria,1.0,,
+rename,reusar,,SLA Policy Status Updated,Estado de la política de SLA actualizado,SLA policy status updated,Estado de la política de SLA actualizado,1.0,,
+rename,reusar,,Configure Telephony Settings for your CRM,Configure los ajustes de telefonía de su CRM,Configure telephony settings for your CRM,Configure los ajustes de telefonía de su CRM,1.0,,
+rename,reusar,,Email Account updated successfully,Cuenta de correo actualizada correctamente,Email account updated successfully,Cuenta de correo actualizada correctamente,1.0,,
+rename,reusar,,Assign Conditions are invalid,Las condiciones de asignación no son válidas,Assign conditions are invalid,Las condiciones de asignación no son válidas,1.0,,
+rename,reusar,,Error updating Lead Sync Source,Error al actualizar el Lead Sync Source,Error updating lead sync source,Error al actualizar el Lead Sync Source,1.0,,
+rename,reusar,,Preferences Updated Successfully,Preferencias actualizadas correctamente,Preferences updated successfully,Preferencias actualizadas correctamente,1.0,,
+rename,reusar,,Lead Sync Source created successfully,Lead Sync Source creado correctamente,Lead sync source created successfully,Lead Sync Source creado correctamente,1.0,,
+rename,reusar,,Assignment Rule Duplicated,Regla de asignación duplicada,Assignment rule duplicated,Regla de asignación duplicada,1.0,,
+rename,reusar,,Error creating Lead Sync Source,Error al crear el Lead Sync Source,Error creating lead sync source,Error al crear el Lead Sync Source,1.0,,
+rename,reusar,,Priority {0}: Response Time is required,Prioridad {0}: el tiempo de respuesta es obligatorio,Priority {0}: response time is required,Prioridad {0}: el tiempo de respuesta es obligatorio,1.0,{0},
+rename,reusar,,SLA Policy Deleted,Política de SLA eliminada,SLA policy deleted,Política de SLA eliminada,1.0,,
+rename,reusar,,You can get your Access Key from ,Puede obtener su clave de acceso en,You can get your access key from ,Puede obtener su clave de acceso en,1.0,,
+rename,reusar,,Assignment Rule Deleted,Regla de asignación eliminada,Assignment rule deleted,Regla de asignación eliminada,1.0,,
+rename,reusar,,End Time must be after Start Time,La hora de finalización debe ser posterior a la hora de inicio,End time must be after start time,La hora de finalización debe ser posterior a la hora de inicio,1.0,,
+rename,reusar,,SLA Policy Name is required,El nombre de la política de SLA es obligatorio,SLA policy name is required,El nombre de la política de SLA es obligatorio,1.0,,
+rename,reusar,,SLA Policy Updated,Política de SLA actualizada,SLA policy updated,Política de SLA actualizada,1.0,,
+rename,reusar,,Sales Hierarchy enabled,Jerarquía de ventas habilitada,Sales hierarchy enabled,Jerarquía de ventas habilitada,1.0,,
+rename,reusar,,Response Time is required,El tiempo de respuesta es obligatorio,Response time is required,El tiempo de respuesta es obligatorio,1.0,,
+rename,reusar,,End Date cannot be before start date,La fecha de fin no puede ser anterior a la fecha de inicio,End date cannot be before start date,La fecha de fin no puede ser anterior a la fecha de inicio,1.0,,
+rename,reusar,,SLA Policy Duplicated,Política de SLA duplicada,SLA policy duplicated,Política de SLA duplicada,1.0,,
+rename,reusar,,End Time must be after Start Time for: {0},La hora de finalización debe ser posterior a la hora de inicio para: {0},End time must be after start time for: {0},La hora de finalización debe ser posterior a la hora de inicio para: {0},1.0,{0},
+rename,reusar,,Configure your Twilio Telephony Integration Settings here,Configure aquí los ajustes de integración de telefonía de Twilio,Configure your Twilio telephony integration settings here,Configure aquí los ajustes de integración de telefonía de Twilio,1.0,,
+rename,reusar,,Email Already Exists,El correo ya existe,email already exists,El correo ya existe,1.0,,
+rename,reusar,,Configure the Exchange Rate Provider for your CRM,Configure el proveedor de tipos de cambio para su CRM,Configure the exchange rate provider for your CRM,Configure el proveedor de tipos de cambio para su CRM,1.0,,
+rename,reusar,,Start Date cannot be after end date,La fecha de inicio no puede ser posterior a la fecha de fin,Start date cannot be after end date,La fecha de inicio no puede ser posterior a la fecha de fin,1.0,,
+rename,reusar,,Unassign Conditions are invalid,Las condiciones de desasignación no son válidas,Unassign conditions are invalid,Las condiciones de desasignación no son válidas,1.0,,
+rename,reusar,,SLA Policy Created,Política de SLA creada,SLA policy created,Política de SLA creada,1.0,,
+rename,reusar,,Please select a Priority,Seleccione una prioridad,Please select a priority,Seleccione una prioridad,1.0,,
+rename,reusar,,Choose the Email Service Provider you want to configure.,Elija el proveedor de servicios de correo que desea configurar.,Choose the email service provider you want to configure.,Elija el proveedor de servicios de correo que desea configurar.,1.0,,
+rename,reusar,,Start Time is required,La hora de inicio es obligatoria,Start time is required,La hora de inicio es obligatoria,1.0,,
+rename,reusar,,"Configure your Brand Name, Logo, and Favicon","Configure el nombre de su marca, el logotipo y el favicon","Configure your brand name, logo and favicon","Configure el nombre de su marca, el logotipo y el favicon",0.989,,
+rename,reusar,,Setting up Frappe Mail requires you to have an API key and API Secret of your email account. Read more,Para configurar Frappe Mail necesita tener una clave de API y una Clave Secreta de API de su cuenta de correo. Más información,Setting up Frappe Mail requires you to have an API key and API secret for your email account. Read more,Para configurar Frappe Mail necesita tener una clave de API y una Clave Secreta de API de su cuenta de correo. Más información,0.985,,
+rename,reusar,,"Failed to update Email Account, Invalid credentials",No se pudo actualizar la cuenta de correo; credenciales no válidas,Failed to update email account: invalid credentials,No se pudo actualizar la cuenta de correo; credenciales no válidas,0.98,,
+rename,reusar,,"Failed to create Email Account, Invalid credentials",No se pudo crear la cuenta de correo; credenciales no válidas,Failed to create email account: invalid credentials,No se pudo crear la cuenta de correo; credenciales no válidas,0.98,,
+rename,reusar,,Default Calling Medium for Logged In User,Medio de llamada predeterminado para el usuario que inició sesión,Default calling medium for logged-in user,Medio de llamada predeterminado para el usuario que inició sesión,0.976,,
+rename,ajustar,,"At least one valid Workday with Workday, Start Time, and End Time is required","Se requiere al menos una jornada laboral válida con jornada, hora de inicio y hora de finalización","At least one valid workday with a day, start time, and end time is required","Se requiere al menos una jornada laboral válida con día, hora de inicio y hora de finalización",0.961,,
+rename,reusar,,SLA set as default cannot be disabled,El SLA establecido como predeterminado no se puede deshabilitar,An SLA set as default cannot be disabled,El SLA establecido como predeterminado no se puede deshabilitar,0.961,,
+rename,ajustar,,Contact already exists with Email: {0},Ya existe un contacto con el correo: {0},Contact already exists with {0},Ya existe un contacto con {0},0.899,{0},
+rename,reusar,,Mobile No. should be a number,El número de móvil debe ser un número,Mobile number should be a number,El número de móvil debe ser un número,0.885,,
+rename,ajustar,,Enable the integration to create quotations and auto create customers in ERPNext.,Habilite la integración para crear cotizaciones y crear clientes automáticamente en ERPNext.,Enable the integration to create quotations and more in ERPNext.,Habilite la integración para crear cotizaciones y más en ERPNext.,0.869,,
+rename,reusar,,Enter Personal Mobile No.,Ingrese el número de móvil personal,Enter Personal Mobile Number,Ingrese el número de móvil personal,0.868,,

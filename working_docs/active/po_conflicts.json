@@ -1,0 +1,163 @@
+[
+  {
+    "msgctxt": "",
+    "msgid": "Item Group",
+    "msgid_plural": "",
+    "apps": [
+      "crm",
+      "erpnext"
+    ],
+    "variantes": [
+      {
+        "app": "erpnext",
+        "entry_key": "erpnext:161c4620dc909d80",
+        "proposed": "Grupo de Artículos",
+        "ref": "erpnext/accounts/doctype/pos_invoice_item/pos_invoice_item.json"
+      },
+      {
+        "app": "crm",
+        "entry_key": "crm:8a4a107660392a74",
+        "proposed": "Grupo de artículos",
+        "ref": "frontend/src/components/Settings/ERPNextSettings.vue:405"
+      }
+    ]
+  },
+  {
+    "msgctxt": "",
+    "msgid": "End date cannot be before start date",
+    "msgid_plural": "",
+    "apps": [
+      "crm",
+      "erpnext"
+    ],
+    "variantes": [
+      {
+        "app": "erpnext",
+        "entry_key": "erpnext:2847aa3f8cbc3c31",
+        "proposed": "La fecha de finalización no puede ser anterior a la fecha de inicio",
+        "ref": "erpnext/accounts/doctype/process_deferred_accounting/process_deferred_accounting.js:48"
+      },
+      {
+        "app": "crm",
+        "entry_key": "crm:72d245449ab2d4a2",
+        "proposed": "La fecha de fin no puede ser anterior a la fecha de inicio",
+        "ref": "frontend/src/components/Settings/Sla/utils.js:172"
+      }
+    ]
+  },
+  {
+    "msgctxt": "",
+    "msgid": "Please enter a valid email address",
+    "msgid_plural": "",
+    "apps": [
+      "crm",
+      "hrms"
+    ],
+    "variantes": [
+      {
+        "app": "hrms",
+        "entry_key": "hrms:4ed21c7fb72ccff6",
+        "proposed": "Ingrese una dirección de correo electrónico válida",
+        "ref": "frontend/src/views/ForgotPassword.vue:109"
+      },
+      {
+        "app": "crm",
+        "entry_key": "crm:8ef13c9c0503f2b1",
+        "proposed": "Ingrese una dirección de correo válida",
+        "ref": "frontend/src/composables/useContactFields.ts:104"
+      }
+    ]
+  },
+  {
+    "msgctxt": "",
+    "msgid": "Choose the email service provider you want to configure.",
+    "msgid_plural": "",
+    "apps": [
+      "crm",
+      "helpdesk"
+    ],
+    "variantes": [
+      {
+        "app": "helpdesk",
+        "entry_key": "helpdesk:4feb6e24195a85f1",
+        "proposed": "Elija el proveedor de servicios de correo electrónico que desee configurar.",
+        "ref": "desk/src/components/Settings/EmailAdd.vue:5"
+      },
+      {
+        "app": "crm",
+        "entry_key": "crm:dd85b4c0ab1eb955",
+        "proposed": "Elija el proveedor de servicios de correo que desea configurar.",
+        "ref": "frontend/src/components/Settings/EmailAdd.vue:9"
+      }
+    ]
+  },
+  {
+    "msgctxt": "",
+    "msgid": "Email account updated successfully",
+    "msgid_plural": "",
+    "apps": [
+      "crm",
+      "helpdesk"
+    ],
+    "variantes": [
+      {
+        "app": "helpdesk",
+        "entry_key": "helpdesk:3a97c3e9fe65544d",
+        "proposed": "Cuenta de correo electrónico actualizada correctamente",
+        "ref": "desk/src/components/Settings/EmailEdit.vue:471"
+      },
+      {
+        "app": "crm",
+        "entry_key": "crm:9f193abef4634d25",
+        "proposed": "Cuenta de correo actualizada correctamente",
+        "ref": "frontend/src/components/Settings/EmailEdit.vue:211"
+      }
+    ]
+  },
+  {
+    "msgctxt": "",
+    "msgid": "I understand, add conditions",
+    "msgid_plural": "",
+    "apps": [
+      "crm",
+      "helpdesk"
+    ],
+    "variantes": [
+      {
+        "app": "helpdesk",
+        "entry_key": "helpdesk:cb5627b29d538226",
+        "proposed": "Entiendo, añadir condiciones",
+        "ref": "desk/src/components/Settings/Sla/SlaPolicyView.vue:115"
+      },
+      {
+        "app": "crm",
+        "entry_key": "crm:9cda3972de8c96f7",
+        "proposed": "Entiendo, agregar condiciones",
+        "ref": "frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:199"
+      }
+    ]
+  },
+  {
+    "msgctxt": "",
+    "msgid": "Select an icon...",
+    "msgid_plural": "",
+    "apps": [
+      "crm",
+      "helpdesk"
+    ],
+    "variantes": [
+      {
+        "app": "helpdesk",
+        "entry_key": "helpdesk:a1d3a4c53971f0cd",
+        "proposed": "Seleccionar un icono...",
+        "ref": "desk/src/components/ViewModal.vue:33"
+      },
+      {
+        "app": "crm",
+        "entry_key": "crm:52556f53bee8463c",
+        "proposed": "Seleccione un icono...",
+        "ref": "frontend/src/components/Modals/ViewModal.vue:46"
+      }
+    ]
+  }
+]

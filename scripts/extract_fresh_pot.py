@@ -82,6 +82,9 @@ def run():
 	# ${...} (no traducibles estáticamente). Verificado: 0 errores; solo ADICIONES de texto visible real.
 	script_block_re = re.compile(r"<script\b[^>]*>(.*?)</script>", re.DOTALL | re.IGNORECASE)
 	mustache_re = re.compile(r"\{\{(.*?)\}\}", re.DOTALL)
+	# Bindings de atributo Vue: :attr="EXPR" / v-bind:attr="EXPR" cuyo valor contiene __().
+	# El valor usa comillas simples internas (convención Vue), así el cierre "[^\"]*" es seguro.
+	attr_bind_re = re.compile(r'(?:v-bind)?:[\w.:-]+\s*=\s*"([^"]*__\([^"]*)"')
 
 	def _msgkey(messages):
 		return messages if isinstance(messages, str) else tuple(messages)
@@ -104,6 +107,26 @@ def run():
 			try:
 				results = list(
 					js_src_extract(io.BytesIO(mblk.group(1).encode("utf-8")), keywords, comment_tags, options)
+				)
+			except Exception:
+				continue
+			for lineno, funcname, messages, comments in results:
+				if _has_interp(messages):
+					continue
+				key = (funcname, _msgkey(messages))
+				if key in seen:
+					continue
+				seen.add(key)
+				yield lineno + offset, funcname, messages, comments
+		# 4) bindings de atributo Vue :attr="__(...)" / v-bind:attr="__(...)" que html_template NO
+		#    captura. Mismo extractor JS oficial que ya usamos para <script> y {{ }}; dedup por (funcname,
+		#    msgid) contra `seen`, y filtro de interpolación ${…}. Solo ADICIONES; 0 duplicados.
+		for mattr in attr_bind_re.finditer(text):
+			expr = mattr.group(1)
+			offset = text[: mattr.start(1)].count("\n")
+			try:
+				results = list(
+					js_src_extract(io.BytesIO(expr.encode("utf-8")), keywords, comment_tags, options)
 				)
 			except Exception:
 				continue

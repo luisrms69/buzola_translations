@@ -1,0 +1,113 @@
+class,ctx,msgid_new,msgid_old,tr_old,similarity,placeholders,locs
+nueva,,"<p>Dear {{ lead_name }},</p>
+
+<p>This is a reminder for the payment of {{ grand_total }}.</p>
+
+<p>Thanks,</p>
+<p>Frappé</p>",,,,{{ grand_total };{{ lead_name },frontend/src/components/Settings/EmailTemplate/EditEmailTemplate.vue:94;frontend/src/components/Settings/EmailTemplate/NewEmailTemplate.vue:95
+nueva,,Automatically sets communication status to “Open” for the lead or deal when a new communication is created. Applies only when SLA is enabled,,,,,frontend/src/components/Settings/GeneralSettings.vue:64
+nueva,,Automatically sets communication status to “Replied” for the lead or deal when a response is received. Applies only when SLA is enabled,,,,,frontend/src/components/Settings/GeneralSettings.vue:42
+nueva,,Bidirectional Product Sync,,,,,crm/fcrm/doctype/erpnext_crm_settings/erpnext_crm_settings.json;frontend/src/components/Settings/ERPNextSettings.vue:216
+nueva,,"Could not save, try again",,,,,frontend/src/components/PrimaryDropdownItem.vue:181;frontend/src/components/PrimaryDropdownItem.vue:188
+nueva,,Current icon,,,,,frontend/src/components/Modals/ViewModal.vue:35
+nueva,,"Dear {{ lead_name }}, 
+
+This is a reminder for the payment of {{ grand_total }}. 
+
+Thanks, 
+Frappé",,,,{{ grand_total };{{ lead_name },frontend/src/components/Settings/EmailTemplate/EditEmailTemplate.vue:110;frontend/src/components/Settings/EmailTemplate/NewEmailTemplate.vue:111
+nueva,,"Document ID, not the full name",,,,,frontend/src/components/Filter.vue:239
+nueva,,Edit deal's mandatory fields layout,,,,,frontend/src/components/Modals/ConvertToDealModal.vue:14
+nueva,,Email address added,,,,,frontend/src/composables/useContactFields.ts:67
+nueva,,Email address removed,,,,,frontend/src/composables/useContactFields.ts:98
+nueva,,Email address updated,,,,,frontend/src/composables/useContactFields.ts:88
+nueva,,ERPNext Items always sync into CRM Products. Turn this on to also sync CRM Product changes back to ERPNext Items.,,,,,frontend/src/components/Settings/ERPNextSettings.vue:220
+nueva,,"Hi John, 
+
+Can you please provide more details on this...",,,,,frontend/src/components/CommunicationArea.vue:56
+nueva,,Invalid recording URL,,,,,crm/integrations/api.py:176;crm/integrations/api.py:180
+nueva,,item,,,,,frontend/src/components/Settings/ERPNextSettings.vue:561
+nueva,,Item Group,,,,,frontend/src/components/Settings/ERPNextSettings.vue:405
+nueva,,items,,,,,frontend/src/components/Settings/ERPNextSettings.vue:561
+nueva,,Manual Sync,,,,,frontend/src/components/Settings/ERPNextSettings.vue:243
+nueva,,Mobile number added,,,,,frontend/src/composables/useContactFields.ts:68
+nueva,,Mobile number removed,,,,,frontend/src/composables/useContactFields.ts:99
+nueva,,Mobile number updated,,,,,frontend/src/composables/useContactFields.ts:89
+nueva,,Personal Mobile Number,,,,,frontend/src/components/Settings/Telephony/TelephonySettings.vue:120
+nueva,,Please enter a valid email address,,,,,frontend/src/composables/useContactFields.ts:104
+nueva,,Please enter a valid phone number,,,,,frontend/src/composables/useContactFields.ts:107
+nueva,,Primary email address updated,,,,,frontend/src/composables/useContactFields.ts:52
+nueva,,Primary mobile number updated,,,,,frontend/src/composables/useContactFields.ts:53
+nueva,,product,,,,,frontend/src/components/Settings/ERPNextSettings.vue:565
+nueva,,Product sync started.,,,,,frontend/src/components/Settings/ERPNextSettings.vue:497
+nueva,,products,,,,,frontend/src/components/Settings/ERPNextSettings.vue:565
+nueva,,Recording not available,,,,,frontend/src/components/Modals/CallLogDetailModal.vue:106
+nueva,,Recording URL is not allowed,,,,,crm/integrations/api.py:184
+nueva,,Replace with an icon...,,,,,frontend/src/components/Modals/ViewModal.vue:45
+nueva,,Run a manual bi-directional sync between ERPNext Items and CRM Products.,,,,,frontend/src/components/Settings/ERPNextSettings.vue:248
+nueva,,Run a manual synchronization to pull the latest Items from ERPNext.,,,,,frontend/src/components/Settings/ERPNextSettings.vue:251
+nueva,,Select an icon...,,,,,frontend/src/components/Modals/ViewModal.vue:46
+nueva,,Select Country to see state options,,,,,frontend/src/utils/fieldTransforms.js:113
+nueva,,Too many redirects while fetching recording,,,,,crm/integrations/api.py:247
+nueva,,Type an email address to invite,,,,,frontend/src/components/Controls/MultiSelectEmailInput.vue:73;frontend/src/components/Controls/MultiSelectUserInput.vue:73
+nueva,,{0} not yet synced,,,,{0},frontend/src/components/Settings/ERPNextSettings.vue:569
+rename,,Sync successful!,Sync Successful!,¡Sincronización exitosa!,1.0,,
+rename,,Please enter the {0} access key.,Please enter the {0} Access Key.,Ingrese la clave de acceso de {0}.,1.0,{0},
+rename,,Template deleted successfully,Template Deleted Successfully,Plantilla eliminada correctamente,1.0,,
+rename,,Error syncing lead,Error Syncing Lead,Error al sincronizar el Lead,1.0,,
+rename,,Configure your Exotel telephony integration settings here,Configure your Exotel Telephony Integration Settings here,Configure aquí los ajustes de integración de telefonía de Exotel,1.0,,
+rename,,Priority {0}: priority name is required,Priority {0}: Priority Name is required,Prioridad {0}: el nombre de la prioridad es obligatorio,1.0,{0},
+rename,,Profile updated successfully,Profile Updated Successfully,Perfil actualizado correctamente,1.0,,
+rename,,Assignment rule created,Assignment Rule Created,Regla de asignación creada,1.0,,
+rename,,Select a Twilio app for your CRM,Select a Twilio App for your CRM,Seleccione una app de Twilio para su CRM,1.0,,
+rename,,Sales hierarchy disabled,Sales Hierarchy disabled,Jerarquía de ventas deshabilitada,1.0,,
+rename,,Access key for {0}. Required for fetching exchange rates.,Access Key for {0}. Required for fetching exchange rates.,Clave de acceso para {0}. Necesaria para obtener los tipos de cambio.,1.0,{0},
+rename,,Assignment rule {0} updated,Assignment Rule {0} Updated,Regla de asignación {0} actualizada,1.0,{0},
+rename,,Email account created successfully,Email Account created successfully,Cuenta de correo creada correctamente,1.0,,
+rename,,"I understand, add conditions","I understand, Add Conditions","Entiendo, agregar condiciones",1.0,,
+rename,,Some error occurred while creating SLA policy,Some error occurred while creating SLA Policy,Ocurrió un error al crear la política de SLA,1.0,,
+rename,,Assignment rule updated,Assignment Rule Updated,Regla de asignación actualizada,1.0,,
+rename,,Assign condition is required,Assign Condition is required,La condición de asignación es obligatoria,1.0,,
+rename,,Invalid site URL,Invalid Site URL,URL del sitio no válida,1.0,,
+rename,,End time is required,End Time is required,La hora de finalización es obligatoria,1.0,,
+rename,,SLA policy status updated,SLA Policy Status Updated,Estado de la política de SLA actualizado,1.0,,
+rename,,Configure telephony settings for your CRM,Configure Telephony Settings for your CRM,Configure los ajustes de telefonía de su CRM,1.0,,
+rename,,Email account updated successfully,Email Account updated successfully,Cuenta de correo actualizada correctamente,1.0,,
+rename,,Assign conditions are invalid,Assign Conditions are invalid,Las condiciones de asignación no son válidas,1.0,,
+rename,,Error updating lead sync source,Error updating Lead Sync Source,Error al actualizar el Lead Sync Source,1.0,,
+rename,,Preferences updated successfully,Preferences Updated Successfully,Preferencias actualizadas correctamente,1.0,,
+rename,,Lead sync source created successfully,Lead Sync Source created successfully,Lead Sync Source creado correctamente,1.0,,
+rename,,Assignment rule duplicated,Assignment Rule Duplicated,Regla de asignación duplicada,1.0,,
+rename,,Error creating lead sync source,Error creating Lead Sync Source,Error al crear el Lead Sync Source,1.0,,
+rename,,Priority {0}: response time is required,Priority {0}: Response Time is required,Prioridad {0}: el tiempo de respuesta es obligatorio,1.0,{0},
+rename,,SLA policy deleted,SLA Policy Deleted,Política de SLA eliminada,1.0,,
+rename,,You can get your access key from ,You can get your Access Key from ,Puede obtener su clave de acceso en,1.0,,
+rename,,Assignment rule deleted,Assignment Rule Deleted,Regla de asignación eliminada,1.0,,
+rename,,End time must be after start time,End Time must be after Start Time,La hora de finalización debe ser posterior a la hora de inicio,1.0,,
+rename,,SLA policy name is required,SLA Policy Name is required,El nombre de la política de SLA es obligatorio,1.0,,
+rename,,SLA policy updated,SLA Policy Updated,Política de SLA actualizada,1.0,,
+rename,,Sales hierarchy enabled,Sales Hierarchy enabled,Jerarquía de ventas habilitada,1.0,,
+rename,,Response time is required,Response Time is required,El tiempo de respuesta es obligatorio,1.0,,
+rename,,End date cannot be before start date,End Date cannot be before start date,La fecha de fin no puede ser anterior a la fecha de inicio,1.0,,
+rename,,SLA policy duplicated,SLA Policy Duplicated,Política de SLA duplicada,1.0,,
+rename,,End time must be after start time for: {0},End Time must be after Start Time for: {0},La hora de finalización debe ser posterior a la hora de inicio para: {0},1.0,{0},
+rename,,Configure your Twilio telephony integration settings here,Configure your Twilio Telephony Integration Settings here,Configure aquí los ajustes de integración de telefonía de Twilio,1.0,,
+rename,,email already exists,Email Already Exists,El correo ya existe,1.0,,
+rename,,Configure the exchange rate provider for your CRM,Configure the Exchange Rate Provider for your CRM,Configure el proveedor de tipos de cambio para su CRM,1.0,,
+rename,,Start date cannot be after end date,Start Date cannot be after end date,La fecha de inicio no puede ser posterior a la fecha de fin,1.0,,
+rename,,Unassign conditions are invalid,Unassign Conditions are invalid,Las condiciones de desasignación no son válidas,1.0,,
+rename,,SLA policy created,SLA Policy Created,Política de SLA creada,1.0,,
+rename,,Please select a priority,Please select a Priority,Seleccione una prioridad,1.0,,
+rename,,Choose the email service provider you want to configure.,Choose the Email Service Provider you want to configure.,Elija el proveedor de servicios de correo que desea configurar.,1.0,,
+rename,,Start time is required,Start Time is required,La hora de inicio es obligatoria,1.0,,
+rename,,"Configure your brand name, logo and favicon","Configure your Brand Name, Logo, and Favicon","Configure el nombre de su marca, el logotipo y el favicon",0.989,,
+rename,,Setting up Frappe Mail requires you to have an API key and API secret for your email account. Read more,Setting up Frappe Mail requires you to have an API key and API Secret of your email account. Read more,Para configurar Frappe Mail necesita tener una clave de API y una Clave Secreta de API de su cuenta de correo. Más información,0.985,,
+rename,,Failed to update email account: invalid credentials,"Failed to update Email Account, Invalid credentials",No se pudo actualizar la cuenta de correo; credenciales no válidas,0.98,,
+rename,,Failed to create email account: invalid credentials,"Failed to create Email Account, Invalid credentials",No se pudo crear la cuenta de correo; credenciales no válidas,0.98,,
+rename,,Default calling medium for logged-in user,Default Calling Medium for Logged In User,Medio de llamada predeterminado para el usuario que inició sesión,0.976,,
+rename,,"At least one valid workday with a day, start time, and end time is required","At least one valid Workday with Workday, Start Time, and End Time is required","Se requiere al menos una jornada laboral válida con jornada, hora de inicio y hora de finalización",0.961,,
+rename,,An SLA set as default cannot be disabled,SLA set as default cannot be disabled,El SLA establecido como predeterminado no se puede deshabilitar,0.961,,
+rename,,Contact already exists with {0},Contact already exists with Email: {0},Ya existe un contacto con el correo: {0},0.899,{0},
+rename,,Mobile number should be a number,Mobile No. should be a number,El número de móvil debe ser un número,0.885,,
+rename,,Enable the integration to create quotations and more in ERPNext.,Enable the integration to create quotations and auto create customers in ERPNext.,Habilite la integración para crear cotizaciones y crear clientes automáticamente en ERPNext.,0.869,,
+rename,,Enter Personal Mobile Number,Enter Personal Mobile No.,Ingrese el número de móvil personal,0.868,,
