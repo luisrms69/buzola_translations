@@ -4,6 +4,27 @@ Todas las versiones notables de `buzola_translations`.
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/);
 versionado [SemVer](https://semver.org/lang/es/).
 
+## [0.4.0] - 2026-08-24
+
+Resincronización holística del catálogo a las versiones actuales del bench.
+
+### Added
+- **Extracción en bindings de atributo Vue:** el extractor (`scripts/extract_fresh_pot.py`) ahora
+  captura llamadas `__()` en atributos `:attr="…"` / `v-bind` (antes omitidas por `html_template`) —
+  origen del tooltip de CRM sin traducir.
+
+### Changed
+- **Resincronizado a las versiones instaladas:** Frappe **16.31.0**, ERPNext **16.32.1**, HRMS **16.16.0**,
+  Helpdesk **1.29.0**, CRM **1.81.2**. `locale/es.po` regenerado (**20 992 entradas**, 0 conflictos,
+  0 pérdida de placeholders).
+
+### Actualización / operación
+- **Requisito de precedencia:** `buzola_translations` debe quedar **última en `installed_apps`** para que
+  su overlay prevalezca; si otra app queda después, su `es.po` propio sobrescribe las cadenas comunes.
+- **Tras actualizar:** compilar el catálogo (`bench compile-po-to-mo --app buzola_translations`) y ejecutar
+  `bench --site <sitio> clear-cache`.
+- **No requiere `bench migrate`** (sin cambios de esquema).
+
 ## [0.3.0] - 2026-08-14
 
 Incorporación de **Frappe CRM** al catálogo y cierre de cobertura del extractor SPA.
