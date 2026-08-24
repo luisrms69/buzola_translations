@@ -1,47 +1,47 @@
 {
   "apps": {
     "crm": {
-      "branch": "develop",
-      "commit": "2752c85",
-      "version": "2.0.0-dev"
+      "branch": "main",
+      "commit": "49d98d6",
+      "version": "1.81.2"
     },
     "erpnext": {
       "branch": "version-16",
-      "commit": "9d5c760",
-      "version": "16.27.0"
+      "commit": "21d1873",
+      "version": "16.32.1"
     },
     "frappe": {
       "branch": "version-16",
-      "commit": "4113465",
-      "version": "16.26.3"
+      "commit": "6a329d0",
+      "version": "16.31.0"
     },
     "helpdesk": {
       "branch": "main",
-      "commit": "7b4b400",
-      "version": "1.28.1"
+      "commit": "4804862",
+      "version": "1.29.0"
     },
     "hrms": {
       "branch": "version-16",
-      "commit": "c703255",
-      "version": "16.12.2"
+      "commit": "f281e8b",
+      "version": "16.16.0"
     }
   },
   "conflictos": 0,
-  "dedups": 1074,
+  "dedups": 1050,
   "elegibles_por_app": {
-    "crm": 1959,
-    "erpnext": 9996,
-    "frappe": 6183,
-    "helpdesk": 1569,
-    "hrms": 2246
+    "crm": 1740,
+    "erpnext": 10129,
+    "frappe": 6280,
+    "helpdesk": 1651,
+    "hrms": 2242
   },
   "exclusiones": {
-    "estado": 283,
+    "estado": 304,
     "no_app": 0,
     "no_publicada": 0,
     "sin_proposed": 2
   },
   "po_path": "buzola_translations/locale/es.po",
-  "po_sha256": "099a9a8aea31981bf0f32d627d4669df8a0c50b7b55dfbad2a2dc0b1fdb1096c",
-  "total_entradas_po": 20879
+  "po_sha256": "822953f9926aa325c5b62bf0890726acb060166f9daf4e142478771879ed6a53",
+  "total_entradas_po": 20992
 }
